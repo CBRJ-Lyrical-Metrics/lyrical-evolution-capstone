@@ -119,9 +119,9 @@ def clean_df(df, extra_words = [], exclude_words = []):
     tokenized_df = df.clean.apply(tokenize)
     # stemmed column created from stem function
     df['stemmed'] = tokenized_df.apply(stem)
-    # lemmatized column created from lemmatize function
-    df['lemmatized'] = tokenized_df.apply(lemmatize)
+#     # lemmatized column created from lemmatize function
+#     df['lemmatized'] = tokenized_df.apply(lemmatize)
     # create columns with character and word counts
-    df = df.assign(character_count= df.lemmatized.str.len(), 
-             word_count=df.lemmatized.str.split().apply(len))
+    df = df.assign(character_count= df.stemmed.str.len(), 
+             word_count=df.stemmed.str.split().apply(len))
     return df
