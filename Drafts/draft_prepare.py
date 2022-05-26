@@ -110,7 +110,7 @@ def lemmatize(string):
 
 def clean_df(df, extra_words = [], exclude_words = []):
     # pull the data
-    df = pd.read_json('data.json')
+#     df = pd.read_json('data.json')
     # drops nulls
     df.dropna(inplace = True)
     # add clean column that applies basic clean function
