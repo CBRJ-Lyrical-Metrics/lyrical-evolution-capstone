@@ -44,7 +44,7 @@ Table of Contents
 ## I. PROJECT OVERVIEW
 
 #### 1. GOAL:
-The goal of this project is to build a Natural Language Processing model that can predict the decade a song first appeared on teh Billboard Top 100 chart, given the lyrics of the song. 
+The goal of this project is to build a Natural Language Processing model that can predict the decade a song first appeared on the Billboard Top 100 chart, given the lyrics of the song. 
  
  
 #### 2. DESCRIPTION:
@@ -84,8 +84,8 @@ A lot of feature engineering was completed prior to modeling in an attempt to cr
 - [x] .py modules - provide reproducible code to automate acquiring, preparing, splitting, exploring, and modeling the corpus
 - [x] Final Jupyter Notebook - provides presentation-ready wrangle, exploration, modeling, and summary
 - [x] Slide Deck - includes ___________
-- [x] Handout Pamphlet - provides overview and summary of project process and outcome
-
+- [x] One-Page Handout Pamphlet - provides overview and summary of project process and outcome
+- [x] 10 Minute Presentation 
  
  
 ## II. PROJECT DATA CONTEXT
