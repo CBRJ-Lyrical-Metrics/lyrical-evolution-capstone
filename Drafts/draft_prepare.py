@@ -111,8 +111,6 @@ def lemmatize(string):
 ################### CLEAN DATAFRAME ###################
 
 def clean_df(df, extra_words = [], exclude_words = []):
-    # pull the data
-#     df = pd.read_json('data.json')
     # drops nulls
     df.dropna(inplace = True)
     # add clean column that applies basic clean function
@@ -121,8 +119,8 @@ def clean_df(df, extra_words = [], exclude_words = []):
     tokenized_df = df.clean.apply(tokenize)
     # stemmed column created from stem function
     df['stemmed'] = tokenized_df.apply(stem)
-#     # lemmatized column created from lemmatize function
-#     df['lemmatized'] = tokenized_df.apply(lemmatize)
+    # lemmatized column created from lemmatize function
+    df['lemmatized'] = tokenized_df.apply(lemmatize)
     # create columns with character and word counts
     df = df.assign(character_count= df.stemmed.str.len(), 
              word_count=df.stemmed.str.split().apply(len))
