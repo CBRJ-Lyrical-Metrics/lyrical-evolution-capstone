@@ -7,6 +7,8 @@ import json
 import nltk
 from nltk.tokenize.toktok import ToktokTokenizer
 from nltk.corpus import stopwords
+import nltk.sentiment
+sia = nltk.sentiment.SentimentIntensityAnalyzer()
 
 # Pandas dataframe manipulation
 import pandas as pd
@@ -124,4 +126,5 @@ def clean_df(df, extra_words = [], exclude_words = []):
     # create columns with character and word counts
     df = df.assign(character_count= df.stemmed.str.len(), 
              word_count=df.stemmed.str.split().apply(len))
+    df['sentiment'] = df.lemmatized.apply(lambda msg: sia.polarity_scores(msg)['compound'])
     return df
