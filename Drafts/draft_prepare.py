@@ -158,6 +158,7 @@ def model_clean(df):
     remove incomplete decades, 
     remove "Lyrics" intro ('{song name} lyrics'),
     remove 'Embed' from tail of lyrics,
+    remove tags [{chorus, etc}] and ({hook, etc}),
     expand contractions,
     run basic clean, all lower, letters only, 
     remove stopwords,
@@ -175,6 +176,10 @@ def model_clean(df):
     df["lyrics"] = df.lyrics.apply(lambda x: x.split("Lyrics")[1])
     # remove 'Embed' from tail of lyrics
     df["lyrics"] = df.lyrics.apply(lambda x: x.rsplit("Embed")[0])
+    # remove everything contained in []
+    df.lyrics = df.lyrics.apply(lambda x: re.sub(r"\[.*?\]", "", x))
+    # remove everything contained in ()
+    df.lyrics = df.lyrics.apply(lambda x: re.sub(r"\(.*?\)", "", x))
     # expand contractions
     df["lyrics"] = df.lyrics.apply(contractions.fix)
     # clean df
