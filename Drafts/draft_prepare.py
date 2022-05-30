@@ -24,6 +24,7 @@ warnings.filterwarnings("ignore")
 
 import numpy as np
 import contractions
+from sklearn.model_selection import train_test_split
 
 ################### BASIC CLEAN ###################
 
@@ -190,3 +191,39 @@ def model_clean(df):
     df["lyrics"] = df.lyrics.apply(lemmatize)
 
     return df
+
+
+def split_data_xy(X, y):
+    """
+    **Used for tfidf vectorizer model**
+    This function takes in X and y variables as strings, then splits and returns the data as 
+    X_train, X_validate, X_test, y_train, y_validate, and y_test sets using random state 42.
+    """
+    # split the data set with stratifiy if True
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, stratify=y, test_size=0.2, random_state=42
+    )
+    X_train, X_validate, y_train, y_validate = train_test_split(
+        X_train, y_train, stratify=y_train, test_size=0.3, random_state=42
+    )
+    return (X_train, X_validate, X_test, y_train, y_validate, y_test)
+
+
+def split_data(df):
+
+    """
+    This function takes in a dataframe, then splits and returns the data as train, validate, and test sets 
+    using random state 42.
+    """
+    # split data into 2 groups, train_validate and test, assigning test as 20% of the dataset
+    train_validate, test = train_test_split(
+        df, test_size=0.2, random_state=42, stratify=df["decade"]
+    )
+    # split train_validate into 2 groups with
+    train, validate = train_test_split(
+        train_validate,
+        test_size=0.3,
+        random_state=42,
+        stratify=train_validate["decade"],
+    )
+    return train, validate, test
