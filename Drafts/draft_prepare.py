@@ -9,7 +9,13 @@ from nltk.tokenize.toktok import ToktokTokenizer
 from nltk.corpus import stopwords
 import nltk.sentiment
 
+# Sentiment Analysis
 sia = nltk.sentiment.SentimentIntensityAnalyzer()
+
+# Modeling help...
+from sklearn.decomposition import NMF
+from sklearn.decomposition import LatentDirichletAllocation
+from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 
 # Pandas dataframe manipulation
 import pandas as pd
@@ -128,28 +134,95 @@ def lemmatize(string):
 
 ################### CLEAN DATAFRAME ###################
 
-
 def clean_df(df, extra_words=[], exclude_words=[]):
-    # drops nulls
+    """
+    remove nulls,
+    date to datetime,
+    make decade column,
+    remove incomplete decades, 
+    remove "Lyrics" intro ('{song name} lyrics'),
+    remove 'Embed' from tail of lyrics,
+    remove tags [{chorus, etc}] and ({hook, etc}),
+    expand contractions,
+    run basic clean, all lower, letters only, 
+    remove stopwords,
+    lemma
+    """
+    # drop nulls
     df.dropna(inplace=True)
-    # add clean column that applies basic clean function
-    df["clean"] = df.lyrics.apply(basic_clean).apply(remove_stopwords)
-    # tokenize df applied after running tokenize function
-    tokenized_df = df.clean.apply(tokenize)
-    # stemmed column created from stem function
-    df["stemmed"] = tokenized_df.apply(stem)
-    # lemmatized column created from lemmatize function
-    df["lemmatized"] = tokenized_df.apply(lemmatize)
+    # convert date to datetime
+    df["date"] = pd.to_datetime(df["date"])
+    # create decade column
+    df["decade"] = df.date.dt.year - (df.date.dt.year % 10)
+    # remove "Lyrics" intro ('{song name} lyrics')
+    df["lyrics"] = df.lyrics.apply(lambda x: x.split("Lyrics")[1])
+    # remove 'Embed' from tail of lyrics
+    df["lyrics"] = df.lyrics.apply(lambda x: x.rsplit("Embed")[0])
+    # remove everything contained in []
+    df.lyrics = df.lyrics.apply(lambda x: re.sub(r"\[.*?\]", "", x))
+    # remove everything contained in ()
+    df.lyrics = df.lyrics.apply(lambda x: re.sub(r"\(.*?\)", "", x))
+    # expand contractions
+    df["lyrics"] = df.lyrics.apply(contractions.fix)
+    # clean df
+    df["lyrics"] = df.lyrics.apply(basic_clean)
+    # remove stopwords
+    df["lyrics"] = df.lyrics.apply(remove_stopwords)
+    # lemmatize
+    df["lyrics"] = df.lyrics.apply(lemmatize)
     # create columns with character and word counts
     df = df.assign(
-        character_count=df.stemmed.str.len(),
-        word_count=df.stemmed.str.split().apply(len),
+        character_count=df.lyrics.str.len(),
+        word_count=df.lyrics.str.split().apply(len),
     )
-    df["sentiment"] = df.lemmatized.apply(
+    df["sentiment"] = df.lyrics.apply(
         lambda msg: sia.polarity_scores(msg)["compound"]
     )
     return df
 
+
+############################### Adding Topics ###############################
+def get_topics(df):
+    # Create an instance
+    cv = CountVectorizer(max_df = .95, min_df = 2, stop_words = 'english')
+    
+    # Fit and transform the lemmatized lyrics data
+    cv_fit = cv.fit_transform(df.lyrics)
+
+    # Create the instance for LDA
+    lda = LatentDirichletAllocation(n_components = 20, random_state = 42)
+    
+    # Fit the vectorizer with the LDA
+    lda.fit(cv_fit)
+    
+    # Pull feature names out and define as feature
+    feature = cv.get_feature_names()
+    
+    # Final df transforming cv_fit
+    df_final = lda.transform(cv_fit)
+    
+#     # Make copy to save original df 
+#     df_new = copy.deepcopy(df)
+    
+    prob = df_final[0][df_final[0].argmax()].round(2)
+    
+    # Assign the opics tp the dataframe
+    df['topic'] = df_final.argmax(axis = 1)
+    
+    # Creating a dictionary with key as topic numbers and value as topic names
+    topic_label = {0:'Love', 1:'Kind Goodbye', 2:'Appeasing', 3:'Club', 4:'Country Life', 5:'Resentful Goodbye', 
+                   6:'Lost', 7:'Hard Times', 8:'Nature', 9:'Miracles', 10:'Money', 11:'Dance', 12:'Fun', 
+                   13:'Dance', 14:'Weekend', 15:'Transcendental', 16:'Sex', 17:'Summer', 18:'Spanish', 19:'Affection'}
+    
+    # Mapping the dictionary with the dataframe to get the labels.
+    df['topic_name'] = df['topic'].map(topic_label)
+#     # Drop the unnecessary duplicate column
+#     df = pd.concat([df, df_new['topic_name']], axis = 1)
+    # Drop unnecessary column 'topic'
+    df = df.drop(columns = ['topic']) 
+    return df
+
+###############################  ###############################
 
 def model_clean(df):
     """
@@ -189,7 +262,7 @@ def model_clean(df):
     df["lyrics"] = df.lyrics.apply(remove_stopwords)
     # lemmatize
     df["lyrics"] = df.lyrics.apply(lemmatize)
-
+    
     return df
 
 
