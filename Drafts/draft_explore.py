@@ -11,9 +11,6 @@ from sklearn.decomposition import LatentDirichletAllocation
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.model_selection import train_test_split
 
-# Import prepare
-import draft_prepare as p
-
 # Quieeet!!! Y'all can't stop me now...
 import warnings
 warnings.filterwarnings('ignore')
