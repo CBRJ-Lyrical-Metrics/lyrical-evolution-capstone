@@ -1,6 +1,6 @@
-SONG LYRIC CAPSTONE: 
+A LYRICAL EVOLUTION: 
 
-A Natural Language Processing Approach to Evaluating Lyrics
+A Cultural Lexicon Analysis of U.S. Popular Music from 1958 - 2021
 
 #### [Final Slide Presentation](________)
 ===
@@ -10,7 +10,7 @@ Team Members: Ben Smith, Chris Teceno, Jerry Nolf, Rachel Robbins-Mayhill  |   C
 ===
 
 
-IMAGE
+ <img src='Drafts/dataset-cover.png' width="1200" height="250" align="center"/>
 
 
 ===
