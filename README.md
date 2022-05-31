@@ -10,7 +10,7 @@ Team Members: Ben Smith, Chris Teceno, Jerry Nolf, Rachel Robbins-Mayhill  |   C
 ===
 
 
- <img src='dataset_cover.png' width="7500" height="300" align="center"/>
+ <img src='Drafts/dataset_cover.png' width="500" height="300" align="center"/>
 
 
 ===
