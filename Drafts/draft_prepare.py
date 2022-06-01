@@ -94,7 +94,7 @@ def remove_stopwords(string, extra_words=[], exclude_words=[]):
     return string_without_stopwords
 
 
-################### STEM ###################
+###################### STEM ######################
 
 
 def stem(string):
@@ -183,6 +183,7 @@ def clean_df(df, extra_words=[], exclude_words=[]):
 
 ############################### Adding Topics ###############################
 def get_topics(df):
+    np.random.seed(42)  
     # Create an instance
     cv = CountVectorizer(max_df = .95, min_df = 2, stop_words = 'english')
     
@@ -210,14 +211,12 @@ def get_topics(df):
     df['topic'] = df_final.argmax(axis = 1)
     
     # Creating a dictionary with key as topic numbers and value as topic names
-    topic_label = {0:'Love', 1:'Kind Goodbye', 2:'Appeasing', 3:'Club', 4:'Country Life', 5:'Resentful Goodbye', 
-                   6:'Lost', 7:'Hard Times', 8:'Nature', 9:'Miracles', 10:'Money', 11:'Dance', 12:'Fun', 
-                   13:'Dance', 14:'Weekend', 15:'Transcendental', 16:'Sex', 17:'Summer', 18:'Spanish', 19:'Affection'}
+    topic_label = {0:'jealousy', 1:'affection', 2:'breakups', 3:'dance', 4:'holiday', 5:'nature', 
+                   6:'spanish', 7:'transcendental', 8:'lost', 9:'violence', 10:'youth', 11:'love', 12:'heartache', 
+                   13:'money', 14:'affection', 15:'sex', 16:'dance', 17:'good vibes', 18:'americana', 19:'breakup'}
     
-    # Mapping the dictionary with the dataframe to get the labels.
+    # Mapping the dictionary with the dataframe to get the labels column.
     df['topic_name'] = df['topic'].map(topic_label)
-#     # Drop the unnecessary duplicate column
-#     df = pd.concat([df, df_new['topic_name']], axis = 1)
     # Drop unnecessary column 'topic'
     df = df.drop(columns = ['topic']) 
     return df
