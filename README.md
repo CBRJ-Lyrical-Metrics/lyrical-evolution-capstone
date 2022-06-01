@@ -1,6 +1,6 @@
 A LYRICAL EVOLUTION: 
 
-A Cultural Lexicon Analysis of U.S. Popular Music from 1958 - 2021
+An Investigation of the Cultural Lexicon & Historical Relevance of U.S. Popular Music from 1958 - 2021
 
 #### [Final Slide Presentation](________)
 ===
