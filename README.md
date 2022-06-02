@@ -125,13 +125,15 @@ The following outlines the process taken through the Data Science Pipeline to co
 Plan➜ Acquire ➜ Prepare ➜ Explore ➜ Model & Evaluate ➜ Deliver
  
 #### 1. PLAN
+- [x]  Create an organizational tool for tracking project completion through the data science pipeline using [Trello](https://trello.com/b/hfrfjZ6Q/teamflow-process)
 - [x]  Review project expectations
 - [x]  Draft project goal to include measures of success
-- [x]  Create questions related to the project
-- [x]  Create questions related to the corpus
-- [x]  Create a plan for completing the project using the data science pipeline and [Trello](https://trello.com/b/hfrfjZ6Q/teamflow-process)
-- [x]  Create a data dictionary framework to define variables and data context
+- [x]  Clarify questions related to the project
+- [x]  Create exploratory questions related to the corpus
 - [x]  Draft starting hypothesis
+- [X]  Add all planning and project breakdown tasks to the orgnaizational tool
+
+
  
 #### 2. ACQUIRE
 - [x]  Create .gitignore
@@ -174,7 +176,7 @@ Using Python Scripting Program (Jupyter Notebook)
    - [x]  Lemmatize Function: to acquire lexicographically correct root words
    - [x]  Stopwords Function: to remove meaningless words
 - [x]  Ensure all imports needed to run the prepare functions are added to the prepare.py document
-
+- [x]  Create a data dictionary framework to define variables and data context
  
 #### 4.EXPLORE
 Using Jupyter Notebook:
