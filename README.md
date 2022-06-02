@@ -1,8 +1,8 @@
 A LYRICAL EVOLUTION: 
 
-An Investigation of the Cultural Lexicon & Historical Relevance of U.S. Popular Music from 1958 - 2021
+An Investigation of the Cultural Lexicon & Historical Relevance of U.S. Popular Music from 1958 - Present
 
-#### [Final Slide Presentation](________)
+#### [Final Slide Presentation](https://www.canva.com/design/DAFCXoeG7z0/jNCtQkQFqyOTWS5Ckg8Xuw/view?utm_content=DAFCXoeG7z0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 ===
         
 Team Members: Ben Smith, Chris Teceno, Jerry Nolf, Rachel Robbins-Mayhill  |   Codeup   |   Innis Cohort   |   June 2022
@@ -44,17 +44,25 @@ Table of Contents
 ## I. PROJECT OVERVIEW
 
 #### 1. GOAL:
-The goal of this project is to build a Natural Language Processing model that can predict the decade a song first appeared on the Billboard Top 100 chart, given the lyrics of the song. 
+This project aims to investigate the patterns of song lyrics across decades using Natural Language Processing techniques including Topic Modeling, Sentiment Analysis, and Term Frequency using a Kaggle data set of the Billboard Top 100 Songs from 1958 - 2021 and lyrics pulled form the Genius.com API. We believe the lyrics of popular songs could be used as historical analysis through machine learning to identify changing societal trends in relationships, technology, sexuality, and vulgarity.
  
  
 #### 2. DESCRIPTION:
-This project was initiated by utilizing web scraping techniques to scrape song lyrics from Genius ______. ___________, were used as the documents within the corpus for this NLP project.
 
-After acquiring and preparing the corpus, our team conducted natural language processing exploration utilizing methods such as word clouds and bigrams. We employed multiclass classification methods to create multiple machine learning models. The end goal was to create an NLP model that accurately predicted the decade a song first appeared on the Billboard Top 100 chart, based on the words and word combinations found in the lyrics of the song.
- 
+Songs are powerful tokens: they can soothe, validate, ignite, confront, and educate us – among other things. Like time capsules, they are captured for eternity. The slang and language used are often indicative of the times, and you can probably recall exactly when a song was made based on what is mentioned. Arguably, music is a catalyst for societal and cultural evolution like no other artform. It has been causing controversy and societal upheaval for decades, and it seems with every generation there’s a new musical trend that has the older generations shaking their heads. 
+
+For centuries, songs have been passed down through generations, being sung as oral histories. However, with advancements of the 20th century, technology has made the world of music a much smaller place and, thanks to cheap, widely-available audio equipment, songs are now distributed on a much larger scale, having farther reaching impact, and a more permanent place in history. 
+
+This project aimed to combine the record of lyrical history and technological advancements to evaluate the changes in cultural lexicon and societal changes over the last 50+ years. Using machine learning and natural language processing methodologies we investigated the topics prevalent in songs of the past, predicted the decade in which they were written, and conducted historical analysis through exploration to identify changing societal trends in relationships, technology, sexuality, and vulgarity.
+
+<img src='Billboard.png' width="350" height="350" align="left"/> To do this, we acquired a [Kaggle](https://www.kaggle.com/datasets/dhruvildave/billboard-the-hot-100-songs) data set of the Billboard Top 100 Songs from its inception in 1958 to present. We then utilized the [Genius.com](https://genius.com/) API and LyricGenius Library to conduct web scraping to pull the lyrics for the specified songs which became the corpus for this project. After acquiring and preparing the corpus, our team conducted natural language processing exploration utilizing methods such as topic modeling, word clouds, and bigrams. We employed multiclass classification methods to create multiple machine learning models. The end goal was to create an NLP model that accurately predicted the decade a song first appeared on the Billboard Top 100 chart, based on the words and word combinations found in the lyrics of the song.
+
+We choose the Billboard Hot 100 song list as a focus because it is the music industry standard record chart in the United States for song popularity, published weekly by Billboard magazine. It provides a window into popular culture at a given time, by providing chart rankings of songs that were trending on sales, airplay, and now streaming for that week in the United States. It is arguably the best historical record of the impact of specific popular songs over time.
+
+
 
 #### 3. FORMULATING HYPOTHESES
-The initial hypothesis of the project was ______ would have a higher average word count in comparison to other _______. The thought behind this was _________ . These thoughts and the subsequent hypothesis drove the initial exploratory questions for this project.
+The initial hypothesis of this project was that we could use the top songs of each decade in conjunction with topic modeling to identify unique words or topics which could be used as features to accurately predict the decade a song was on the Billboard Top 100 using machine learning. The thought behind this was that popular songs have been the historians of a unique lexicon, specific to their place in time. We believe the lyrics of popular songs could be analyzed through machine learning to identify societal trends in relationships, technology, sexuality, and vulgarity.
 
 
 #### 4.INITIAL QUESTIONS:
@@ -121,22 +129,27 @@ Plan➜ Acquire ➜ Prepare ➜ Explore ➜ Model & Evaluate ➜ Deliver
 - [x]  Draft project goal to include measures of success
 - [x]  Create questions related to the project
 - [x]  Create questions related to the corpus
-- [x]  Create a plan for completing the project using the data science pipeline
+- [x]  Create a plan for completing the project using the data science pipeline and [Trello](https://trello.com/b/hfrfjZ6Q/teamflow-process)
 - [x]  Create a data dictionary framework to define variables and data context
 - [x]  Draft starting hypothesis
  
 #### 2. ACQUIRE
 - [x]  Create .gitignore
-- [x]  Create env file with log-in credentials for GitHub
+- [x]  Obtain API token from [Genius.com](https://genius.com/) 
+- [x]  Create env file and store the Genius token within
 - [x]  Store env file in .gitignore to ensure the security of sensitive data
-- [x]  Create wrangle.py module
-- [x]  Store functions needed to acquire the lyric documents for __________
-     - [x] 
-- [x]  Ensure all imports needed to run the acquire functions are inside the wrangle.py document
+- [x]  Obtain Billboard Top 100 Song list from [Kaggle](https://www.kaggle.com/datasets/dhruvildave/billboard-the-hot-100-songs) 
+- [x]  Pip Install [LyricsGenius](https://pypi.org/project/lyricsgenius/)
+- [x]  Create acquire.py module
+- [x]  Store functions needed to acquire the lyric documents to make up the corpus
+     - [x] Pull artist and song title from Kaggle dataset
+     - [x] Run through Lyrics Genius to obtain lyrics 
+     - [x] Store as.csv     
+- [x]  Ensure all imports needed to run the acquire functions are inside the acquire.py document
 - [x]  Using Command Line / Terminal, run ‘python acquire.py’ to create the `data.json` file that contains the corpus
 - [x]  Using Jupyter Notebook or other Python Scripting Program
      - [x]  Run all required imports
-     - [x]  Import functions for acquiring the corpus from wrangle.py module
+     - [x]  Import functions for acquiring the corpus from acquire.py module
      - [x]  Obtain the original size of the corpus
      
  
