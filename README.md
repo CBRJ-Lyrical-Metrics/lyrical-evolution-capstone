@@ -44,16 +44,16 @@ Table of Contents
 ## I. PROJECT OVERVIEW
 
 #### 1. GOAL:
-This project aims to investigate the patterns of song lyrics across decades using Natural Language Processing techniques including Topic Modeling, Sentiment Analysis, and Term Frequency using a Kaggle data set of the Billboard Top 100 Songs from 1958 - 2021 and lyrics pulled form the Genius.com API. We believe the lyrics of popular songs could be used as historical analysis through machine learning to identify changing societal trends in relationships, technology, sexuality, and vulgarity.
+This project aims to investigate the patterns of song lyrics across decades using Natural Language Processing techniques including Topic Modeling, Sentiment Analysis, and Term Frequency using a Kaggle data set of the Billboard Top 100 Songs from 1958 - 2021 and lyrics pulled from the Genius.com API. We believe the lyrics of popular songs could be used for historical analysis through machine learning to identify changing societal trends in relationships, technology, sexuality, and vulgarity.
  
  
 #### 2. DESCRIPTION:
 
-Songs are powerful tokens: they can soothe, validate, ignite, confront, and educate us – among other things. Like time capsules, they are captured for eternity. The slang and language used are often indicative of the times, and you can probably recall exactly when a song was made based on what is mentioned. Arguably, music is a catalyst for societal and cultural evolution like no other artform. It has been causing controversy and societal upheaval for decades, and it seems with every generation there’s a new musical trend that has the older generations shaking their heads. 
+Songs are powerful tokens: they can soothe, validate, ignite, confront, and educate us – among other things. Like time capsules, they are captured for eternity. The slang and language used are often indicative of the times, and you can probably recall exactly when a song was made based on what is mentioned. Arguably, music is a catalyst for societal and cultural evolution like no other art form. It has been causing controversy and societal upheaval for decades, and it seems with every generation there’s a new musical trend that has the older generations shaking their heads. 
 
-For centuries, songs have been passed down through generations, being sung as oral histories. However, with advancements of the 20th century, technology has made the world of music a much smaller place and, thanks to cheap, widely-available audio equipment, songs are now distributed on a much larger scale, having farther reaching impact, and a more permanent place in history. 
+For centuries, songs have been passed down through generations, being sung as oral histories. However, with advancements of the 20th century, technology has made the world of music a much smaller place and, thanks to cheap, widely-available audio equipment, songs are now distributed on a much larger scale, having a farther-reaching impact, and a more permanent place in history. 
 
-This project aimed to combine the record of lyrical history and technological advancements to evaluate the changes in cultural lexicon and societal changes over the last 50+ years. Using machine learning and natural language processing methodologies we investigated the topics prevalent in songs of the past, predicted the decade in which they were written, and conducted historical analysis through exploration to identify changing societal trends in relationships, technology, sexuality, and vulgarity.
+This project aimed to combine the record of lyrical history and technological advancements to evaluate the changes in the cultural lexicon and societal evolution over the last 50+ years. Using machine learning and natural language processing methodologies we investigated the topics prevalent in songs of the past, predicted the decade in which they were written, and conducted historical analysis through exploration to identify changing societal trends in relationships, technology, sexuality, and vulgarity.
 
 To do this, we acquired a [Kaggle](https://www.kaggle.com/datasets/dhruvildave/billboard-the-hot-100-songs) data set of the Billboard Top 100 Songs from its inception in 1958 to present. We then utilized the [Genius.com](https://genius.com/) API and LyricGenius Library to conduct web scraping to pull the lyrics for the specified songs which became the corpus for this project. After acquiring and preparing the corpus, our team conducted natural language processing exploration utilizing methods such as topic modeling, word clouds, and bigrams. We employed multiclass classification methods to create multiple machine learning models. The end goal was to create an NLP model that accurately predicted the decade a song first appeared on the Billboard Top 100 chart, based on the words and word combinations found in the lyrics of the song.
 
@@ -70,31 +70,31 @@ The focus of the project is on identifying the decade a song first appeared on t
  
  
 ##### Data-Focused Questions
-- What are the most frequently occuring words?
-- What are the most frequently occuring bigrams (pairs of words) by each decade?
+- What are the most frequently occurring words?
+- What are the most frequently occurring bigrams (pairs of words) by each decade?
 - What decade did the song first appear in the top 100?
 - What topics are most unique to each decade?
 - Is there a correlation between sentiment and decade?
  
   
 #### 5. KEY FINDINGS:
-The key findings for this presentation are available in slide format by clicking on the [Final Slide Presentation](________________).
+The key findings for this presentation are available in slide format by clicking on the [Final Slide Presentation](https://www.canva.com/design/DAFCXoeG7z0/jNCtQkQFqyOTWS5Ckg8Xuw/view?utm_content=DAFCXoeG7z0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton).
 
-Ultimately, our hypothesis that  
+Ultimately, our hypothesis that ______ TBD _____________ 
 
-Exploration revealed t
+Exploration revealed ________ TBD ____________
 
-A lot of feature engineering was completed prior to modeling in an attempt to create a higher performing model, however our best performing models were made with 
+Extensive feature engineering was completed prior to modeling in an attempt to create a higher performing model, however our best performing models were made with ________ TBD ______________
  
 #### 6. DELIVERABLES:
 - [x] README file - provides an overview of the project and steps for project reproduction
 - [x] Draft Jupyter Notebook - provides all steps taken to produce the project
 - [x] .py modules - provide reproducible code to automate acquiring, preparing, splitting, exploring, and modeling the corpus
-- [x] Final Jupyter Notebook - provides presentation-ready wrangle, exploration, modeling, and summary
-- [x] Slide Deck - includes ___________
-- [x] One-Page Handout Pamphlet - provides overview and summary of project process and outcome
+- [x] Final Jupyter Notebook - provides presentation-ready acquire, prepare, exploration, modeling, and summary
+- [x] Slide Deck - includes executive summary, takeaways, and explanation of key insights from each step of the Data Science Pipeline
+- [x] One-Page Handout - provides overview and summary of project process and outcome
 - [x] 10 Minute Presentation 
- 
+
  
 ## II. PROJECT DATA CONTEXT
  
