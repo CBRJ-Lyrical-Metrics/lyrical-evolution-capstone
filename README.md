@@ -55,7 +55,7 @@ For centuries, songs have been passed down through generations, being sung as or
 
 This project aimed to combine the record of lyrical history and technological advancements to evaluate the changes in cultural lexicon and societal changes over the last 50+ years. Using machine learning and natural language processing methodologies we investigated the topics prevalent in songs of the past, predicted the decade in which they were written, and conducted historical analysis through exploration to identify changing societal trends in relationships, technology, sexuality, and vulgarity.
 
-<img src='Billboard.png' width="350" height="350" align="left"/> To do this, we acquired a [Kaggle](https://www.kaggle.com/datasets/dhruvildave/billboard-the-hot-100-songs) data set of the Billboard Top 100 Songs from its inception in 1958 to present. We then utilized the [Genius.com](https://genius.com/) API and LyricGenius Library to conduct web scraping to pull the lyrics for the specified songs which became the corpus for this project. After acquiring and preparing the corpus, our team conducted natural language processing exploration utilizing methods such as topic modeling, word clouds, and bigrams. We employed multiclass classification methods to create multiple machine learning models. The end goal was to create an NLP model that accurately predicted the decade a song first appeared on the Billboard Top 100 chart, based on the words and word combinations found in the lyrics of the song.
+To do this, we acquired a [Kaggle](https://www.kaggle.com/datasets/dhruvildave/billboard-the-hot-100-songs) data set of the Billboard Top 100 Songs from its inception in 1958 to present. We then utilized the [Genius.com](https://genius.com/) API and LyricGenius Library to conduct web scraping to pull the lyrics for the specified songs which became the corpus for this project. After acquiring and preparing the corpus, our team conducted natural language processing exploration utilizing methods such as topic modeling, word clouds, and bigrams. We employed multiclass classification methods to create multiple machine learning models. The end goal was to create an NLP model that accurately predicted the decade a song first appeared on the Billboard Top 100 chart, based on the words and word combinations found in the lyrics of the song.
 
 We choose the Billboard Hot 100 song list as a focus because it is the music industry standard record chart in the United States for song popularity, published weekly by Billboard magazine. It provides a window into popular culture at a given time, by providing chart rankings of songs that were trending on sales, airplay, and now streaming for that week in the United States. It is arguably the best historical record of the impact of specific popular songs over time.
 
@@ -232,15 +232,14 @@ Using Jupyter Notebook:
   
 ## V. PROJECT REPRODUCTION:
 ### Steps to Reproduce
-- [x] Create an env.py file that contains access credentials to ________ in the form of ________ and ________ variables
-- [x] You will need a ________ personal access token in place of a password in order to access the contents within _________
-     - [x] Go here and generate a personal access token: _________
-     - [x] You do _not_ need to select any scopes, i.e. leave all the checkboxes unchecked
-     - [x] Save the token in your env.py file under the variable `________`
-- [x] Add your _______ username to your env.py file under the variable `________`
-- [x] Store that env file locally in the repository
-- [x] Make .gitignore and confirm .gitignore is hiding your env.py file
-- [x] Clone our repo (including the wrangle.py)
+- [X] There are 2 options to acquire the data in order to reproduce the project.
+     - [x] 1. Download the .csv file of the song title, artist, lyrics, and date the song first appeared on the Top 100 through [Google Drive](https://drive.google.com/file/d/1S0dJ7-5x8NIgt1LranE3UETgl_JvukGT/view)    
+     - [x] 2. Create an env.py file that will contain access credentials to the Genius API.
+        - [x] Follow directions at [Genius](https://docs.genius.com/#/authentication-h1) to generate an API personal access token in gain access to the contents within the Genius API.
+        - [x] Save the token in your env.py file under the variable `api_token`
+        - [x] Make .gitignore and confirm .gitignore is hiding your env.py file
+        - [x] Store that .gitignore and env file locally in the repository
+- [x] Clone our repo (including all .py modules)
 - [x] Import python libraries:  pandas, matplotlib, seaborn, numpy, sklearn, nltk, json, re, and unicodedata
 - [x] Follow steps as outlined in the README.md. and work.ipynb
 - [x] Run Final_Report.ipynb to view the final product
