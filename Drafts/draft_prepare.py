@@ -32,6 +32,24 @@ import numpy as np
 import contractions
 from sklearn.model_selection import train_test_split
 
+################### GET DATA #####################
+def get_data(file="songs_0526.csv"):
+    """
+    Get data from csv file,
+    clean the data,
+    add features
+    return df
+    """
+    # read csv file
+    print("reading csv file...", end="\r")
+    df = pd.read_csv(file)
+    # clean data
+    df = clean_df(df)
+    # add features
+    df = add_features(df)
+    return df
+
+
 ################### BASIC CLEAN ###################
 
 
@@ -172,7 +190,7 @@ def clean_df(df, extra_words=[], exclude_words=[]):
     # remove stopwords
     df["lyrics"] = df.lyrics.apply(remove_stopwords)
     # lemmatize
-    print("Lemmatizing...", end="\r")
+    print("Lemmatizing... ********", end="\r")
     df["lyrics"] = df.lyrics.apply(lemmatize)
     # if df has column 'Unnamed: 0', remove it
     # this allows for the csv to be pulled in different ways
@@ -205,9 +223,30 @@ def add_features(df):
         character_count=df.lyrics.str.len(),
         word_count=df.lyrics.str.split().apply(len),
     )
+    # add column for unique words
+    print("adding unique words *********", end="\r")
+    df["unique_words"] = df.lyrics.apply(get_unique_words)
+    # add column for unique words count
+    print("adding unique words count ****", end="\r")
+    df["unique_words_count"] = df.unique_words.apply(lambda x: len(x.split()))
     # sentiment measurement
     print("adding sentiment **********", end="\r")
     df["sentiment"] = df.lyrics.apply(lambda msg: sia.polarity_scores(msg)["compound"])
+    # add column for sentiment category
+    print("adding sentiment category ****", end="\r")
+    df["sentiment_category"] = df.sentiment.apply(get_sentiment_category)
+    # make categorical
+    df["sentiment_category"] = pd.Categorical(
+        df.sentiment_category,
+        categories=[
+            "very negative",
+            "somewhat negative",
+            "neutral",
+            "somewhat positive",
+            "very positive",
+        ],
+        ordered=True,
+    )
     # get place words (chorus, lyrics, etc)
     print("adding place words ********", end="\r")
     df = get_place_words(df)
@@ -238,16 +277,27 @@ def add_features(df):
     # add n_grams
     print("adding n_grams *************", end="\r")
     df = get_n_grams(df)
-    # add column for n_grams count
-    print("adding n_grams count ********", end="\r")
-    df["n_grams_count"] = df.n_grams.apply(lambda x: len(x))
     # add column for unique words
     print("adding unique words *********", end="\r")
     df["unique_words"] = df.lyrics.apply(get_unique_words)
     # add column for unique words count
     print("adding unique words count ****", end="\r")
     df["unique_words_count"] = df.unique_words.apply(lambda x: len(x.split()))
-
+    # add column for sentiment category
+    print("adding sentiment category ****", end="\r")
+    df["sentiment_category"] = df.sentiment.apply(get_sentiment_category)
+    # make categorical
+    df["sentiment_category"] = pd.Categorical(
+        df.sentiment_category,
+        categories=[
+            "very negative",
+            "somewhat negative",
+            "neutral",
+            "somewhat positive",
+            "very positive",
+        ],
+        ordered=True,
+    )
     return df
 
 
@@ -287,6 +337,22 @@ def get_unique_words(text):
     # Join unique words list with a new string
     new_string = " ".join(unique_words)
     return new_string
+
+
+def get_sentiment_category(sentiment_score):
+    """
+    Get sentiment category based on sentiment score
+    """
+    if sentiment_score < -0.75:
+        return "very negative"
+    elif sentiment_score < -0.25:
+        return "somewhat negative"
+    elif sentiment_score < 0.25:
+        return "neutral"
+    elif sentiment_score < 0.75:
+        return "somewhat positive"
+    else:
+        return "very positive"
 
 
 ############################### Adding Topics ###############################
