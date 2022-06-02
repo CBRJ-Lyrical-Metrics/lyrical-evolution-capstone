@@ -175,6 +175,10 @@ def clean_df(df, extra_words=[], exclude_words=[]):
         character_count=df.lyrics.str.len(),
         word_count=df.lyrics.str.split().apply(len),
     )
+    # drop unnamed column
+    df = df.drop(columns = ['Unnamed: 0'])
+    
+    # sentiment measurement 
     df["sentiment"] = df.lyrics.apply(
         lambda msg: sia.polarity_scores(msg)["compound"]
     )
