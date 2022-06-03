@@ -103,7 +103,7 @@ The final DataFrame used to explore the corpus for this project contains the fol
  
 |  Variables             |    Definition                              |    DataType             |
 | :--------------------   | :---------------------------------------- | :-------------------- |
-deade (target variable) | The decade the song was FIRST listed on the Billboard Top 100 | object
+decade (target variable) | The decade the song was FIRST listed on the Billboard Top 100 | object
 original              | The contents of scraped song lyrics      | object
 more_clean*           | The lyric contents cleaned with prep_data function     | object
 unique_words*         | The unique words in each more_clean document            | object
@@ -123,6 +123,8 @@ The following outlines the process taken through the Data Science Pipeline to co
  
 Plan➜ Acquire ➜ Prepare ➜ Explore ➜ Model & Evaluate ➜ Deliver
  
+<details><summary>Plan</summary><br/> 
+ 
 #### 1. PLAN
 - [x]  Create an organizational tool for tracking project completion through the data science pipeline using [Trello](https://trello.com/b/hfrfjZ6Q/teamflow-process)
 - [x]  Review project expectations
@@ -130,10 +132,10 @@ Plan➜ Acquire ➜ Prepare ➜ Explore ➜ Model & Evaluate ➜ Deliver
 - [x]  Clarify questions related to the project
 - [x]  Create exploratory questions related to the corpus
 - [x]  Draft starting hypothesis
-- [X]  Add all planning and project breakdown tasks to the orgnaizational tool
+- [X]  Add all planning and project breakdown tasks to the organizational tool
+</details>
 
-
- 
+<details><summary>Acquire</summary><br/>  
 #### 2. ACQUIRE
 - [x]  Create .gitignore
 - [x]  Obtain API token from [Genius.com](https://genius.com/) 
@@ -152,6 +154,7 @@ Plan➜ Acquire ➜ Prepare ➜ Explore ➜ Model & Evaluate ➜ Deliver
      - [x]  Run all required imports
      - [x]  Import functions for acquiring the corpus from acquire.py module
      - [x]  Obtain the original size of the corpus
+</details>
      
  
 #### 3. PREPARE
@@ -168,14 +171,11 @@ Using Jupyter Notebook
    - [x] Remove song part identifiers ('verse', 'chorus', etc.)
 - [x]  Address missing values, data errors, unnecessary data, renaming
 - [x]  Conduct feature engineering to create features to explore and feed into the model
-   - [x] 
-   - [x] 
-   - [x] 
-   - [x] 
-   - [x] 
-
+   - [x] Add: Decade, Chorus Count, Verse Count, Verse/Chorus Ratio, Word Count, Unique Words per Song, Unique Words per Decade, Bigrams, and Trigrams
+   - [x] Conduct Topic Modeling using ________ to extract the main topics from the corpus 
+   - [x] Conduct Sentiment Analysis using __________ to determine positive, negative, and neutral sentiment
 - [x]  Create a data dictionary framework to define final variables and data context
-- [x]  Split corpus into train, validate, and test samples prior to modeling if using features
+- [x]  Split corpus into train, validate, and test samples prior to modeling **if using features in model**
 Using Python Scripting Program (Jupyter Notebook)
 - [x]  Create prepare functions within prepare.py
 - [x]  Store functions needed to prepare the Lyrics Corpus such as:
@@ -183,27 +183,26 @@ Using Python Scripting Program (Jupyter Notebook)
    - [x]  Stem Function: to acquire root words
    - [x]  Lemmatize Function: to acquire lexicographically correct root words
    - [x]  Stopwords Function: to remove meaningless words
-   
-
+   - [x]  Clean_df Function: to remove nulls, convert to DateTime, add ______
+   - [x]  Engineered Features Functions: to add desired features, topics, and sentiment
+   - [x]  Split Function: to split the corpus prior to modeling if using features
 - [x]  Ensure all imports needed to run the prepare functions are added to the prepare.py document
-
+</details>
  
 #### 4.EXPLORE
 Using Jupyter Notebook:
-
 - [x]  Document key questions about hypotheses 
-
-
 - [x]  Create visualizations with the intent to discover variable relationships
-     - [x]  Identify variables related to programming langauge
+     - [x]  Identify variables related to decade of lyrics
      - [x]  Identify any potential data integrity issues
 - [x]  Document findings
 - [x]  Summarize conclusions, provide clear answers, and summarize takeaways
      - [x] Explain plan of action as deduced from work to this point    
-- [x]  Create prepare functions within explore.py
-- [x]  Store functions needed to explore the ________ Corpus in explore.py
+- [x]  Create explore functions within explore.py
+- [x]  Store functions needed to explore the Lyrics Corpus in explore.py
 - [x]  Ensure all imports needed to run the explore functions are added to the explore.py document
- 
+</details>
+
 #### 5. MODEL & EVALUATE
 Using Jupyter Notebook:
 - [x]  Establish baseline accuracy
@@ -217,30 +216,30 @@ Using Jupyter Notebook:
 - [x]  Summarize performance
 - [x]  Interpret and document findings
 - [x]  Create prepare functions within model.py
-- [x]  Store functions needed to model the __________ Corpus in model.py
+- [x]  Store functions needed to model the Lyrics Corpus in model.py
 - [x]  Ensure all imports needed to run the model functions are added to the model.py document
- 
+</details> 
 
 #### 6. DELIVERY
-- [x]  Prepare a presentation using Google Slides, containing 2-5 slides
+- [x]  Prepare a presentation using Canva to document data science pipeline process and findings
      - [x]  Include an introduction of the project and goals
      - [x]  Provide an executive summary of findings, key takeaways, recommendations, and next steps
-     - [x]  Create a walkthrough of the exploration analysis 
-     - [x]  Include 2+ presentation-worthy visualizations that support exploration and modeling
-     - [x]  Provide final takeaways, recommend a course of action for modeling, and next steps
+     - [x]  Create a walkthrough of the acquisition, preparation, exploration and modeling processes 
+     - [x]  Include presentation-worthy visualizations that support exploration and modeling
+     - [x]  Provide final takeaways, recommend a course of action, and next steps
 - [x]  Prepare final notebook in Jupyter Notebook
-     - [x]  Create clear walk-though of the Data Science Pipeline using headings and dividers
+     - [x]  Create clear walk-through of the Data Science Pipeline using headings and dividers
      - [x]  Explicitly define questions asked during the initial analysis
      - [x]  Visualize relationships
      - [x]  Document takeaways
      - [x]  Comment code thoroughly
-
+</details>
 
 
  
  
 ## IV. PROJECT MODULES:
-- [x] wrangle.py - provides reproducible python code to automate acquisition 
+- [x] acquire.py - provides reproducible python code to automate acquisition 
 - [x] prepare.py - provides reproducible python code to automate cleaning, preparing, and splitting the corpus
 - [x] explore.py - provides reproducible python code to automate exploration and visualization
 - [x] model.py - provides reproducible python code to automate modeling and evaluation
@@ -250,12 +249,12 @@ Using Jupyter Notebook:
 - [X] There are 2 options to acquire the data in order to reproduce the project.
      - [x] 1. Download the .csv file of the song title, artist, lyrics, and date the song first appeared on the Top 100 through [Google Drive](https://drive.google.com/file/d/1S0dJ7-5x8NIgt1LranE3UETgl_JvukGT/view)    
      - [x] 2. Create an env.py file that will contain access credentials to the Genius API.
-        - [x] Follow directions at [Genius](https://docs.genius.com/#/authentication-h1) to generate an API personal access token in gain access to the contents within the Genius API.
+        - [x] Follow directions at [Genius](https://docs.genius.com/#/authentication-h1) to generate an API personal access token to gain access to the contents within the Genius API.
         - [x] Save the token in your env.py file under the variable `api_token`
         - [x] Make .gitignore and confirm .gitignore is hiding your env.py file
         - [x] Store that .gitignore and env file locally in the repository
         - [x] Run the acquire.py modules
 - [x] Clone our repo (including all .py modules)
-- [x] Import supporting resources and python libraries:  pandas, matplotlib, seaborn, numpy, sklearn, scipy, nltk, contractions, json, re, and unicodedata, unidecode, lyricsgenius, plotly
+- [x] Import supporting resources and python libraries:  pandas, matplotlib, seaborn, plotly, numpy, sklearn, scipy, nltk, contractions, json, re, and unicodedata, unidecode, and lyricsgenius 
 - [x] Follow steps as outlined in the README.md. and work.ipynb
 - [x] Run Final_Report.ipynb to view the final product
