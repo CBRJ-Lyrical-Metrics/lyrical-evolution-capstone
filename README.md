@@ -44,7 +44,7 @@ Table of Contents
 ## I. PROJECT OVERVIEW
 
 #### 1. GOAL:
-This project aims to investigate the patterns of song lyrics across decades using Natural Language Processing techniques including Topic Modeling, Sentiment Analysis, and Term Frequency using a Kaggle data set of the Billboard Top 100 Songs from 1958 - 2021 and lyrics pulled from the Genius.com API. We believe the lyrics of popular songs could be used for historical analysis through machine learning to identify changing societal trends in relationships, technology, sexuality, and vulgarity.
+This project aims to investigate the patterns of song lyrics across decades using Natural Language Processing techniques including Topic Modeling, Sentiment Analysis, and Term Frequency using a Kaggle data set of the Billboard Top 100 Songs from 1958 - 2021 and lyrics pulled from the Genius.com API. We believe the lyrics of popular songs could be used for historical analysis using exploratory methods and hypothesis testing to identify changing societal trends in relationships, technology, sexuality, and vulgarity. Furthermore, we beleive we can predict the decade the song appeared on the Top 100 using features and machine learning methods. 
  
  
 #### 2. DESCRIPTION:
@@ -72,7 +72,6 @@ The focus of the project is on identifying the decade a song first appeared on t
 ##### Data-Focused Questions
 - What are the most frequently occurring words?
 - What are the most frequently occurring bigrams (pairs of words) by each decade?
-- What decade did the song first appear in the top 100?
 - What topics are most unique to each decade?
 - Is there a correlation between sentiment and decade?
  
@@ -157,30 +156,44 @@ Plan➜ Acquire ➜ Prepare ➜ Explore ➜ Model & Evaluate ➜ Deliver
  
 #### 3. PREPARE
 Using Jupyter Notebook
-- [x]  Acquire corpus using functions from the wrangle.py module
+- [x]  Acquire corpus using functions from the acquire.py module or by utilizing the [Google Drive .csv](https://drive.google.com/file/d/1S0dJ7-5x8NIgt1LranE3UETgl_JvukGT/view) 
 - [x]  Summarize corpus using methods and document observations
 - [x]  Clean documents/corpus
    - [x] Make all text lowercase
    - [x] Normalize, encode, and decode to remove accented text and special characters
-   - [x] Tokenize strings to break words and punctuation into discrete units
+   - [x] Remove stopwords  
    - [x] Stem or Lemmatize words to acquire base words
-   - [x] Remove stopwords
+   - [x] Convert date to DateTime format
+   - [x] Expand contractions to include the full word/meaning
+   - [x] Remove song part identifiers ('verse', 'chorus', etc.)
 - [x]  Address missing values, data errors, unnecessary data, renaming
-- [x]  Split corpus into train, validate, and test samples
+- [x]  Conduct feature engineering to create features to explore and feed into the model
+   - [x] 
+   - [x] 
+   - [x] 
+   - [x] 
+   - [x] 
+
+- [x]  Create a data dictionary framework to define final variables and data context
+- [x]  Split corpus into train, validate, and test samples prior to modeling if using features
 Using Python Scripting Program (Jupyter Notebook)
 - [x]  Create prepare functions within prepare.py
-- [x]  Store functions needed to prepare the ________ Corpus such as:
+- [x]  Store functions needed to prepare the Lyrics Corpus such as:
    - [x]  Cleaning Function: to normalize text and remove accented and special characters
-   - [x]  Tokenize Function: to break strings down into discrete units
    - [x]  Stem Function: to acquire root words
    - [x]  Lemmatize Function: to acquire lexicographically correct root words
    - [x]  Stopwords Function: to remove meaningless words
+   
+
 - [x]  Ensure all imports needed to run the prepare functions are added to the prepare.py document
-- [x]  Create a data dictionary framework to define variables and data context
+
  
 #### 4.EXPLORE
 Using Jupyter Notebook:
-- [x]  Answer key questions about hypotheses 
+
+- [x]  Document key questions about hypotheses 
+
+
 - [x]  Create visualizations with the intent to discover variable relationships
      - [x]  Identify variables related to programming langauge
      - [x]  Identify any potential data integrity issues
@@ -241,7 +254,8 @@ Using Jupyter Notebook:
         - [x] Save the token in your env.py file under the variable `api_token`
         - [x] Make .gitignore and confirm .gitignore is hiding your env.py file
         - [x] Store that .gitignore and env file locally in the repository
+        - [x] Run the acquire.py modules
 - [x] Clone our repo (including all .py modules)
-- [x] Import python libraries:  pandas, matplotlib, seaborn, numpy, sklearn, nltk, json, re, and unicodedata
+- [x] Import supporting resources and python libraries:  pandas, matplotlib, seaborn, numpy, sklearn, scipy, nltk, contractions, json, re, and unicodedata, unidecode, lyricsgenius, plotly
 - [x] Follow steps as outlined in the README.md. and work.ipynb
 - [x] Run Final_Report.ipynb to view the final product
