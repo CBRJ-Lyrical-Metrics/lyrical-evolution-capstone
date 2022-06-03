@@ -1,11 +1,9 @@
 # Unicode, Regex, json for text digestion
 import unicodedata
 import re
-import json
 
 # nltk: natural language toolkit -> tokenization, stopwords
 import nltk
-from nltk.tokenize.toktok import ToktokTokenizer
 from nltk.corpus import stopwords
 import nltk.sentiment
 
@@ -15,7 +13,8 @@ sia = nltk.sentiment.SentimentIntensityAnalyzer()
 # Modeling help...
 from sklearn.decomposition import NMF
 from sklearn.decomposition import LatentDirichletAllocation
-from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.model_selection import train_test_split
 
 # Pandas dataframe manipulation
 import pandas as pd
@@ -30,7 +29,7 @@ warnings.filterwarnings("ignore")
 
 import numpy as np
 import contractions
-from sklearn.model_selection import train_test_split
+
 
 ################### GET DATA #####################
 def get_data(file="songs_0526.csv"):
@@ -371,7 +370,7 @@ def get_topics(df):
     lda.fit(cv_fit)
 
     # Pull feature names out and define as feature
-    feature = cv.get_feature_names()
+    # feature = cv.get_feature_names()
 
     # Final df transforming cv_fit
     df_final = lda.transform(cv_fit)
@@ -379,7 +378,7 @@ def get_topics(df):
     #     # Make copy to save original df
     #     df_new = copy.deepcopy(df)
 
-    prob = df_final[0][df_final[0].argmax()].round(2)
+    # prob = df_final[0][df_final[0].argmax()].round(2)
 
     # Assign the opics tp the dataframe
     df["topic"] = df_final.argmax(axis=1)
