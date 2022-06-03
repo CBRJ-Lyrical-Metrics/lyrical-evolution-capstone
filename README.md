@@ -123,7 +123,7 @@ The following outlines the process taken through the Data Science Pipeline to co
  
 Plan➜ Acquire ➜ Prepare ➜ Explore ➜ Model & Evaluate ➜ Deliver
  
-<details><summary>Plan</summary><br/> 
+<details><summary>PLAN STEPS</summary><br/> 
  
 #### 1. PLAN
 - [x]  Create an organizational tool for tracking project completion through the data science pipeline using [Trello](https://trello.com/b/hfrfjZ6Q/teamflow-process)
@@ -135,7 +135,7 @@ Plan➜ Acquire ➜ Prepare ➜ Explore ➜ Model & Evaluate ➜ Deliver
 - [X]  Add all planning and project breakdown tasks to the organizational tool
 </details>
 
-<details><summary>Acquire</summary><br/>  
+<details><summary>ACQUIRE STEPS</summary><br/>  
 #### 2. ACQUIRE
 - [x]  Create .gitignore
 - [x]  Obtain API token from [Genius.com](https://genius.com/) 
@@ -156,7 +156,7 @@ Plan➜ Acquire ➜ Prepare ➜ Explore ➜ Model & Evaluate ➜ Deliver
      - [x]  Obtain the original size of the corpus
 </details>
      
- 
+<details><summary>PREPARE STEPS</summary><br/>   
 #### 3. PREPARE
 Using Jupyter Notebook
 - [x]  Acquire corpus using functions from the acquire.py module or by utilizing the [Google Drive .csv](https://drive.google.com/file/d/1S0dJ7-5x8NIgt1LranE3UETgl_JvukGT/view) 
@@ -188,7 +188,8 @@ Using Python Scripting Program (Jupyter Notebook)
    - [x]  Split Function: to split the corpus prior to modeling if using features
 - [x]  Ensure all imports needed to run the prepare functions are added to the prepare.py document
 </details>
- 
+
+<details><summary>EXPLORE STEPS</summary><br/>  
 #### 4.EXPLORE
 Using Jupyter Notebook:
 - [x]  Document key questions about hypotheses 
@@ -203,6 +204,7 @@ Using Jupyter Notebook:
 - [x]  Ensure all imports needed to run the explore functions are added to the explore.py document
 </details>
 
+<details><summary>MODEL & EVALUATE STEPS</summary><br/>  
 #### 5. MODEL & EVALUATE
 Using Jupyter Notebook:
 - [x]  Establish baseline accuracy
@@ -220,6 +222,7 @@ Using Jupyter Notebook:
 - [x]  Ensure all imports needed to run the model functions are added to the model.py document
 </details> 
 
+<details><summary>DELIVERY STEPS</summary><br/>  
 #### 6. DELIVERY
 - [x]  Prepare a presentation using Canva to document data science pipeline process and findings
      - [x]  Include an introduction of the project and goals
