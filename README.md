@@ -110,7 +110,7 @@ artist                    |Vocalist who performed song                          
 date                      |Date the song FIRST appeared on the Billboard Top 100  |date time
 lyrics                    |The lyric contents cleaned with prep_data function     |object
 raw_lyrics                |The contents of scraped song lyrics without cleaning   |object
-**decade                  (target variable)** *|The decade the song was FIRST listed on the Billboard Top 100  |integer
+**decade (target)**       |The decade the song was FIRST listed on the Billboard Top 100  |integer
 character_count*          |The number of characters within the cleaned document   |integer
 word_count*               |The number of words within the cleaned document        |integer
 unique_words*             |A list of the unique words in the cleaned document     |object
