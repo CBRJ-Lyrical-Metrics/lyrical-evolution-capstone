@@ -105,28 +105,28 @@ The final DataFrame used to explore the corpus for this project contains the fol
  
 |  Variables             |    Definition                              |    DataType             |
 | :--------------------   | :---------------------------------------- | :-------------------- |
-title                    |Title of song listed on Billboard Top 100 Chart        |object
-artist                   |Vocalist who performed song                            |object
-date                     |Date the song FIRST appeared on the Billboard Top 100  |date time
-lyrics                   |The lyric contents cleaned with prep_data function     |object
-raw_lyrics               |The contents of scraped song lyrics without cleaning   |object
-decade (target variable)*|The decade the song was FIRST listed on the Billboard Top 100  |integer
-character_count*         |The number of characters within the cleaned document   |integer
-word_count               |The number of words within the cleaned document        |integer
-unique_words             |A list of the unique words in the cleaned document     |object
-unique_word_count        |The number of unique words in the cleaned document     |integer
-sentiment                |Score between -1.0 (negative) and 1.0 (positive) indicating overal emotional leaning of lyrics      |float
-sentiment_category       |Categorical category based upon sentiment score: very negative, somewhat negative, nuetral, somewhat positive, very positive   |category
-place_words              |A list of song part identifiers in the lyrics          |object
-chorus_count             |The number of choruses in the song                     |integer
-verse_count              |The number of unique words in the cleaned document     |integer
-verse_chorus_ratio       |The ratio of verses to choruses                        |float
-pre_chorus_count         |The number of pre-choruses in the song                 |integer
-outro_count              |The number of outros in the song                       |integer
-bridge_count             |The number of bridges in the song                      |integer
-hook_count               |The number of hooks in the song                        |integer
-bigrams                  |A list of bigrams in the cleaned document              |object
-trigrams                 |A list of  trigrams in the cleaned document            |object
+title                     |Title of song listed on Billboard Top 100 Chart        |object
+artist                    |Vocalist who performed song                            |object
+date                      |Date the song FIRST appeared on the Billboard Top 100  |date time
+lyrics                    |The lyric contents cleaned with prep_data function     |object
+raw_lyrics                |The contents of scraped song lyrics without cleaning   |object
+**decade (target variable)*|The decade the song was FIRST listed on the Billboard Top 100  |integer**
+character_count*          |The number of characters within the cleaned document   |integer
+word_count*               |The number of words within the cleaned document        |integer
+unique_words*             |A list of the unique words in the cleaned document     |object
+unique_word_count*        |The number of unique words in the cleaned document     |integer
+sentiment*                |Score between -1.0 (negative) and 1.0 (positive) indicating overal emotional leaning of lyrics      |float
+sentiment_category*       |Categorical category based upon sentiment score: very negative, somewhat negative, nuetral, somewhat positive, very positive   |category
+place_words*              |A list of song part identifiers in the lyrics          |object
+chorus_count*             |The number of choruses in the song                     |integer
+verse_count*              |The number of unique words in the cleaned document     |integer
+verse_chorus_ratio*       |The ratio of verses to choruses                        |float
+pre_chorus_count*         |The number of pre-choruses in the song                 |integer
+outro_count*              |The number of outros in the song                       |integer
+bridge_count*             |The number of bridges in the song                      |integer
+hook_count*               |The number of hooks in the song                        |integer
+bigrams*                  |A list of bigrams in the cleaned document              |object
+trigrams*                 |A list of  trigrams in the cleaned document            |object
 
 * feature engineered
  
