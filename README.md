@@ -253,7 +253,9 @@ Using Jupyter Notebook:
 - [x] model.py - provides reproducible python code to automate modeling and evaluation
   
 ## V. PROJECT REPRODUCTION:
-### Steps to Reproduce
+
+<details><summary>### Steps to Reproduce</summary><br/> 
+
 - [X] There are 2 options to acquire the data in order to reproduce the project.
      - [x] 1. Download the .csv file of the song title, artist, lyrics, and date the song first appeared on the Top 100 through [Google Drive](https://drive.google.com/file/d/1S0dJ7-5x8NIgt1LranE3UETgl_JvukGT/view)    
      - [x] 2. Create an env.py file that will contain access credentials to the Genius API.
@@ -266,3 +268,4 @@ Using Jupyter Notebook:
 - [x] Import supporting resources and python libraries:  pandas, matplotlib, seaborn, plotly, numpy, sklearn, scipy, nltk, contractions, json, re, and unicodedata, unidecode, and lyricsgenius 
 - [x] Follow steps as outlined in the README.md. and work.ipynb
 - [x] Run Final_Report.ipynb to view the final product
+</details>
