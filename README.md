@@ -65,7 +65,7 @@ We choose the Billboard Hot 100 song list as a focus because it is the music ind
 The initial hypothesis of this project was that we could use the top songs of each decade in conjunction with topic modeling to identify unique words or topics which could be used as features to accurately predict the decade a song was on the Billboard Top 100 using machine learning. The thought behind this was that popular songs have been the historians of a unique lexicon, specific to their place in time. We believe the lyrics of popular songs could be analyzed through machine learning to identify societal trends in relationships, technology, sexuality, and vulgarity.
 
 
-#### 4.INITIAL QUESTIONS:
+#### 4. INITIAL QUESTIONS:
 The focus of the project is on identifying the decade a song first appeared on the Billboard Top 100. Below are some of the initial questions this project looks to answer throughout the Data Science Pipeline.
  
  
@@ -123,7 +123,7 @@ The following outlines the process taken through the Data Science Pipeline to co
  
 Plan➜ Acquire ➜ Prepare ➜ Explore ➜ Model & Evaluate ➜ Deliver
  
-<details><summary>PLAN STEPS</summary><br/> 
+<details><summary>EXPAND PLAN STEPS</summary><br/> 
  
 #### 1. PLAN
 - [x]  Create an organizational tool for tracking project completion through the data science pipeline using [Trello](https://trello.com/b/hfrfjZ6Q/teamflow-process)
@@ -135,7 +135,7 @@ Plan➜ Acquire ➜ Prepare ➜ Explore ➜ Model & Evaluate ➜ Deliver
 - [X]  Add all planning and project breakdown tasks to the organizational tool
 </details>
 
-<details><summary>ACQUIRE STEPS</summary><br/>  
+<details><summary>EXPAND ACQUIRE STEPS</summary><br/>  
     
 #### 2. ACQUIRE
 - [x]  Create .gitignore
@@ -157,7 +157,7 @@ Plan➜ Acquire ➜ Prepare ➜ Explore ➜ Model & Evaluate ➜ Deliver
      - [x]  Obtain the original size of the corpus
 </details>
      
-<details><summary>PREPARE STEPS</summary><br/>   
+<details><summary>EXPAND PREPARE STEPS</summary><br/>   
     
 #### 3. PREPARE
 Using Jupyter Notebook
@@ -191,7 +191,7 @@ Using Python Scripting Program (Jupyter Notebook)
 - [x]  Ensure all imports needed to run the prepare functions are added to the prepare.py document
 </details>
 
-<details><summary>EXPLORE STEPS</summary><br/> 
+<details><summary>EXPAND EXPLORE STEPS</summary><br/> 
     
 #### 4.EXPLORE
 Using Jupyter Notebook:
@@ -207,7 +207,7 @@ Using Jupyter Notebook:
 - [x]  Ensure all imports needed to run the explore functions are added to the explore.py document
 </details>
 
-<details><summary>MODEL & EVALUATE STEPS</summary><br/>  
+<details><summary>EXPAND MODEL & EVALUATE STEPS</summary><br/>  
     
 #### 5. MODEL & EVALUATE
 Using Jupyter Notebook:
@@ -226,7 +226,7 @@ Using Jupyter Notebook:
 - [x]  Ensure all imports needed to run the model functions are added to the model.py document
 </details> 
 
-<details><summary>DELIVERY STEPS</summary><br/>  
+<details><summary>EXPAND DELIVERY STEPS</summary><br/>  
     
 #### 6. DELIVERY
 - [x]  Prepare a presentation using Canva to document data science pipeline process and findings
@@ -254,7 +254,7 @@ Using Jupyter Notebook:
   
 ## V. PROJECT REPRODUCTION:
 
-<details><summary>### Steps to Reproduce</summary><br/> 
+<details><summary> EXPAND REPRODUCTION STEPS </summary><br/> 
 
 - [X] There are 2 options to acquire the data in order to reproduce the project.
      - [x] 1. Download the .csv file of the song title, artist, lyrics, and date the song first appeared on the Top 100 through [Google Drive](https://drive.google.com/file/d/1S0dJ7-5x8NIgt1LranE3UETgl_JvukGT/view)    
