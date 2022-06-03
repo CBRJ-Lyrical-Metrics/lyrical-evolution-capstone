@@ -105,6 +105,14 @@ The final DataFrame used to explore the corpus for this project contains the fol
  
 |  Variables             |    Definition                              |    DataType             |
 | :--------------------   | :---------------------------------------- | :-------------------- |
+date
+title
+artist
+lyrics
+
+
+
+
 decade (target variable) | The decade the song was FIRST listed on the Billboard Top 100 | object
 original              | The contents of scraped song lyrics      | object
 more_clean*           | The lyric contents cleaned with prep_data function     | object
