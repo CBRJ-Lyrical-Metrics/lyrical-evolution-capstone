@@ -30,6 +30,11 @@ plt.style.use('fivethirtyeight')
 
 ######################################## Topics Visuals ########################################
 
+# Most popular topics...
+def topic_popularity(df):
+    df.topic_name.value_counts().plot(kind = 'bar')
+    return
+
 def show_topic_counts():
     pd.DataFrame(df.topic_name.value_counts())
     return
