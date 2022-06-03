@@ -297,7 +297,7 @@ def add_features(df):
         ],
         ordered=True,
     )
-    print("Great Success!!!!!!!!!!!!!!!", end="\r")
+    print("Great Success!!!!!!!!!!!!!!!")
     return df
 
 
