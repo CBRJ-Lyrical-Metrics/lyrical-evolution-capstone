@@ -44,7 +44,7 @@ Table of Contents
 ## I. PROJECT OVERVIEW
 
 #### 1. GOAL:
-This project aims to investigate the patterns of song lyrics across decades using Natural Language Processing techniques including Topic Modeling, Sentiment Analysis, and Term Frequency using a Kaggle data set of the Billboard Top 100 Songs from 1958 - 2021 and lyrics pulled from the Genius.com API. We believe the lyrics of popular songs could be used for historical analysis using exploratory methods and hypothesis testing to identify changing societal trends in relationships, technology, sexuality, and vulgarity. Furthermore, we beleive we can predict the decade the song appeared on the Top 100 using features and machine learning methods. 
+This project aimed to investigate the patterns of song lyrics across decades using Time Series Analysis and Natural Language Processing techniques including Topic Modeling, Sentiment Analysis, and Term Frequency.  The data used was collected from a Kaggle data set of the Billboard Top 100 Songs from 1958 to 2021 and lyrics pulled through web-scraping from the Genius.com API. We believe the lyrics of popular songs could be used for historical analysis using exploratory methods and hypothesis testing to identify changing societal trends in relationships, technology, sexuality, and vulgarity. Furthermore, we believe we can predict the decade the song first appeared on the Top 100 using features and machine learning methods.
  
  
 #### 2. DESCRIPTION:
