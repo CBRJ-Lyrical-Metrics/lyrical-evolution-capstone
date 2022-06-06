@@ -33,9 +33,10 @@ plt.style.use('fivethirtyeight')
 # Most popular topics...
 def topic_popularity(df):
     df.topic_name.value_counts().plot(kind = 'bar')
-    plt.title('The Popularity Of Topics In The BIllboard Hot 100\nFrom 1958 To Present')
+    plt.title('Billboard Hot 100 Topic Popularity 1958-Present')
     plt.xlabel('Topic Descriptors')
-    plt.ylabel('Topic Count Over Time')
+    plt.xticks(rotation = 35, ha = 'right')
+    plt.ylabel('Song Topic Count')
     return
 
 def show_topic_counts():
@@ -57,13 +58,13 @@ def relationship_bar(df):
     relationships = ['affection','breakups','love', 'breakup', 
                      'sex', 'heartache', 'jealousy']
     # make a copy
-    train2 = df.copy()
+    df2 = df.copy()
     # add a column to the dataframe where any topic that is a relationship topic is gathered and all 
     # others are represented by 'other'
-    train2['relationship_topics'] = np.where(train2.topic_name.isin(relationships), train2.topic_name, 'other')
+    df2['relationship_topics'] = np.where(df2.topic_name.isin(relationships), df2.topic_name, 'other')
     # drop anything that isn't a relationship topic
-    train2 = train2.loc[train2['relationship_topics'] != 'other']
-    train2.groupby('decade').relationship_topics.value_counts(normalize = True).unstack().plot(kind = 'bar', width = 1, ec = 'black')
+    df2 = df2.loc[df2['relationship_topics'] != 'other']
+    df2.groupby('decade').relationship_topics.value_counts(normalize = True).unstack().plot(kind = 'bar', width = 1, ec = 'black')
     plt.legend(bbox_to_anchor = (1.05, 1), loc = 2, borderaxespad=0.)
     plt.title('Relationship Topics\' Prevalence Over the Decades')
     plt.xlabel('Decade of Song')
@@ -76,7 +77,7 @@ def relationships_swarm(df):
     df5['relationship_topics'] = np.where(df5['topic_name'].isin(['affection','love', 'sex', 
                                                          'heartache', 'jealousy','breakups']), df5['topic_name'], None)
     ax = sns.swarmplot(data = df5, x = 'relationship_topics', y = 'date')
-    ax.set(title = 'While Love Has Remained A Constant Topic, Sex Has Replaced Affection In Lyrics')
+    ax.set(title = '\'Breakup\' and \'Love\' Songs Have A Consistent Presence Over The Decades\nWhile It Appears \'Affection\' And \'Sex\' Show A Trade-off')
     plt.ylabel('Decades')
     plt.xlabel('Relationship Topics')
     return
@@ -98,6 +99,7 @@ def relationship_line(df):
     # move the legend outside
     plt.legend(bbox_to_anchor = (1.05, 1), loc = 2, borderaxespad=0.)
     plt.xlim(pd.to_datetime('1960'), pd.to_datetime('2021'))
+#     plt.ylim()
     plt.title('Prevalence of Relationship Topics in Lyrics')
     plt.xlabel('Year')
     plt.xticks(rotation = 25)
@@ -123,9 +125,9 @@ def touch_swarm(df):
     df6['affection_v_sex'] = np.where(df6['topic_name'].isin(['affection','sex']), df6['topic_name'], 
                                                     None)
     ax = sns.swarmplot(data = df6, x = 'affection_v_sex', y = 'date')
-    ax.set(title = 'It Appears That Lyricists Have Become More Open To Full-on \'Sex\' Topics\nAs Opposed To More Subtle Lyrics Talking About \'Affection\'')
-    plt.ylabel('Decades')
-    plt.xlabel('Topics of Intimacy')
+    ax.set(title = '\'Affection\' Has Been Replaced By More Explicit \'Sex\' Lyrics')
+    plt.ylabel('Date')
+    plt.xlabel('Topic')
     return
 
 def vice_bar(df):   
@@ -142,6 +144,7 @@ def vice_bar(df):
     plt.legend(bbox_to_anchor = (1.05, 1), loc = 2, borderaxespad=0.)
     plt.title('Vice Topics\' Prevalence Over the Decades')
     plt.xlabel('Decade of Song')
+    plt.xticks(rotation = 25)
     plt.ylabel('Song Topic Count')
     plt.show()
     return
