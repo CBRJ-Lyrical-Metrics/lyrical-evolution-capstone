@@ -297,7 +297,7 @@ def add_features(df):
         ],
         ordered=True,
     )
-    print("Great Success!!!!!!!!!!!!!!!")
+    print("Features added ******************")
     return df
 
 
@@ -357,23 +357,29 @@ def get_sentiment_category(sentiment_score):
 
 ############################### Adding Topics ###############################
 def get_topics(df):
+    """ add topics to dataframe """
+    print("adding topics *********", end="\r")
     np.random.seed(42)
     # Create an instance
+    print("making vectorizer *****", end="\r")
     cv = CountVectorizer(max_df=0.95, min_df=2, stop_words="english")
 
     # Fit and transform the lemmatized lyrics data
     cv_fit = cv.fit_transform(df.lyrics)
 
     # Create the instance for LDA
+    print("making lda ***********", end="\r")
     lda = LatentDirichletAllocation(n_components=20, random_state=42)
 
     # Fit the vectorizer with the LDA
+    print("fitting lda **********", end="\r")
     lda.fit(cv_fit)
 
     # Pull feature names out and define as feature
     # feature = cv.get_feature_names()
 
     # Final df transforming cv_fit
+    print("transforming cv_fit ****", end="\r")
     df_final = lda.transform(cv_fit)
 
     #     # Make copy to save original df
@@ -412,6 +418,7 @@ def get_topics(df):
     df["topic_name"] = df["topic"].map(topic_label)
     # Drop unnecessary column 'topic'
     df = df.drop(columns=["topic"])
+    print("topics added                        ")
     return df
 
 
