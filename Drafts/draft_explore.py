@@ -33,6 +33,9 @@ plt.style.use('fivethirtyeight')
 # Most popular topics...
 def topic_popularity(df):
     df.topic_name.value_counts().plot(kind = 'bar')
+    plt.title('The Popularity Of Topics In The BIllboard Hot 100\nFrom 1958 To Present')
+    plt.xlabel('Topic Descriptors')
+    plt.ylabel('Topic Count Over Time')
     return
 
 def show_topic_counts():
@@ -76,6 +79,31 @@ def relationships_swarm(df):
     ax.set(title = 'While Love Has Remained A Constant Topic, Sex Has Replaced Affection In Lyrics')
     plt.ylabel('Decades')
     plt.xlabel('Relationship Topics')
+    return
+
+def relationship_line(df):
+    # create a variable that stores a list relationship topics
+    relationships = ['affection','breakups','love', 'breakup', 
+                     'sex', 'heartache', 'jealousy']
+    # make a copy
+    df2 = df.copy()
+    df2 = df2.set_index('date')
+    # add a column to the dataframe where any topic that is a relationship topic is gathered and all 
+    # others are represented by 'other'
+    df2['relationship_topics'] = np.where(df2.topic_name.isin(relationships), df2.topic_name, 'other')
+    # drop anything that isn't a relationship topic
+    df2 = df2.loc[df2['relationship_topics'] != 'other']
+    ax = df2.groupby('relationship_topics').resample('Y').size().unstack(0).rolling(5).mean()\
+                                      .apply(lambda row: row / row.sum(), axis=1).plot(kind = 'line', linewidth = 3)
+    # move the legend outside
+    plt.legend(bbox_to_anchor = (1.05, 1), loc = 2, borderaxespad=0.)
+    plt.xlim(pd.to_datetime('1960'), pd.to_datetime('2021'))
+    plt.title('Prevalence of Relationship Topics in Lyrics')
+    plt.xlabel('Year')
+    plt.xticks(rotation = 25)
+    plt.ylabel('Percentage of Songs')
+    ax.yaxis.set_major_formatter(mtick.PercentFormatter(xmax=1, decimals=None, symbol='%', is_latex=False))
+    plt.show()
     return
 
 def love_swarm(df):  
