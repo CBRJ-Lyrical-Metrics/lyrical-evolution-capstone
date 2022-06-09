@@ -29,16 +29,27 @@ warnings.filterwarnings("ignore")
 
 import numpy as np
 import contractions
+import os
+from collections import Counter
 
 
 ################### GET DATA #####################
-def get_data(file="songs_0526.csv"):
+def get_data(file="songs_0526.csv", use_cache=True):
     """
     Get data from csv file,
     clean the data,
     add features
     return df
     """
+    filename = "prepped_songs.csv"
+    if os.path.isfile(filename) and use_cache:
+        print("Reading from csv...")
+        df = pd.read_csv(filename)
+        # deal with missing values
+        df.fillna("", inplace=True)
+        # conver to datetime
+        df["date"] = pd.to_datetime(df["date"])
+        return df
     # read csv file
     print("reading csv file...", end="\r")
     df = pd.read_csv(file)
@@ -46,6 +57,12 @@ def get_data(file="songs_0526.csv"):
     df = clean_df(df)
     # add features
     df = add_features(df)
+    # remove songs with no lyrics
+    df[df.word_count != 0]  # this is 8 songs
+    # add topics
+    df = get_topics(df)
+    print("Saving to csv in local directory...")
+    df.to_csv(filename, index=False)
     return df
 
 
@@ -109,6 +126,21 @@ def remove_stopwords(string, extra_words=[], exclude_words=[]):
     # Join words in the list back into strings and assign to a variable.
     string_without_stopwords = " ".join(filtered_words)
     return string_without_stopwords
+
+
+def n_most_common_word(string, n=1):
+    """
+    Return the nth most common word in a string
+    """
+    # Create a list of words separated by a space
+    words = string.split()
+    # Make an if statement that will only show the nth most common word based on the value set for n
+    if len(words) < n:
+        return ""
+    # Use collections to get an ngram count
+    word_counts = Counter(words)
+    # Return only the most common
+    return word_counts.most_common(n)[n - 1][0]
 
 
 ###################### STEM ######################
@@ -196,21 +228,15 @@ def clean_df(df, extra_words=[], exclude_words=[]):
     if "Unnamed: 0" in df.columns:
         # # drop unnamed column
         df = df.drop(columns=["Unnamed: 0"])
-
-    # below is added to 'add_features()'
-    # create columns with character and word counts
-
-    # moved to add_features()
-    # df = df.assign(
-    #     character_count=df.lyrics.str.len(),
-    #     word_count=df.lyrics.str.split().apply(len),
-    # )
-
-    # # sentiment measurement
-    # df["sentiment"] = df.lyrics.apply(
-    #     lambda msg: sia.polarity_scores(msg)["compound"]
-    # )
     return df
+
+
+def get_verse_chorus_ratio(x):
+    """Function to get the ratio of verses to chorus"""
+    if x.chorus_count == 0 or x.verse_count == 0:
+        return 0
+    else:
+        return x.verse_count / x.chorus_count
 
 
 def add_features(df):
@@ -257,7 +283,7 @@ def add_features(df):
     df["verse_count"] = df.place_words.apply(lambda x: x.count("verse"))
     # add column for ratio of verses to chorus
     print("adding verse to chorus ratio", end="\r")
-    df["verse_chorus_ratio"] = df.verse_count / df.chorus_count
+    df["verse_chorus_ratio"] = df.apply(get_verse_chorus_ratio, axis=1)
     # add column for pre-chorus count
     print("adding pre-chorus count ****", end="\r")
     df["pre_chorus_count"] = df.place_words.apply(lambda x: x.count("[pre-chorus"))
