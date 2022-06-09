@@ -67,12 +67,6 @@ def run_logistic_reg_models(df):
     """
     Run logistic models on data varying solver and C value
     """
-    # # get raw data
-    # print("getting data", end="\r")
-    # df = pd.read_csv("songs_0526.csv", index_col=0)
-    # # clean data
-    # print("prepping data", end="\r")
-    # df = prepare.model_clean(df)
     # make vectorizer
     tfidf = TfidfVectorizer()
     # fit the vectorizer to the data and make df
