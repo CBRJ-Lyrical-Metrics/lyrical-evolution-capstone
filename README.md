@@ -1,11 +1,11 @@
 A LYRICAL EVOLUTION: 
 
-An Investigation of the Cultural Lexicon & Historical Relevance of U.S. Popular Music from 1958 - Present
+An Investigation of the Cultural Lexicon of U.S. Popular Music from 1958 - Present
 
 #### [Final Slide Presentation](https://www.canva.com/design/DAFCXoeG7z0/jNCtQkQFqyOTWS5Ckg8Xuw/view?utm_content=DAFCXoeG7z0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 ===
         
-Team Members: Ben Smith, Chris Teceno, Jerry Nolf, Rachel Robbins-Mayhill  |   Codeup   |   Innis Cohort   |   June 2022
+Team Members: Jerry Nolf, Rachel Robbins-Mayhill, Ben Smith, Chris Teceno  |   Codeup   |   Innis Cohort   |   June 2022
  
 ===
 
@@ -44,7 +44,7 @@ Table of Contents
 ## I. PROJECT OVERVIEW
 
 #### 1. GOAL:
-This project aimed to investigate the patterns of song lyrics across decades using Time Series Analysis and Natural Language Processing techniques including Topic Modeling, Sentiment Analysis, and Term Frequency.  The data used was collected from a Kaggle data set of the Billboard Top 100 Songs from 1958 to 2021 and lyrics pulled through web-scraping from the Genius.com API. We believe the lyrics of popular songs could be used for historical analysis using exploratory methods and hypothesis testing to identify changing societal trends in relationships, technology, sexuality, and vulgarity. Furthermore, we believe we can predict the decade the song first appeared on the Top 100 using features and machine learning methods.
+This project aimed to investigate the patterns of song lyrics across decades by applying Natural Language Processing techniques including Topic Modeling and Sentiment Analysis, while using a Kaggle data set of the Billboard Top 100 Songs from 1958 - Present and lyrics pulled from the Genius.com API. We believe the lyrics of popular songs could be used for historical analysis using exploratory methods and hypothesis testing to identify changing societal trends in relationships, technology, sexuality, and vulgarity. Furthermore, we beleive we can predict the decade the song appeared on the Top 100 using features and machine learning methods.
  
  
 #### 2. DESCRIPTION:
@@ -53,18 +53,18 @@ Songs are powerful tokens: they can soothe, validate, ignite, confront, and educ
 
 For centuries, songs have been passed down through generations, being sung as oral histories. However, with advancements of the 20th century, technology has made the world of music a much smaller place and, thanks to cheap, widely-available audio equipment, songs are now distributed on a much larger scale, having a farther-reaching impact, and a more permanent place in history. 
 
-This project aimed to combine the record of lyrical history and technological advancements to evaluate the changes in the cultural lexicon and societal evolution over the last 50+ years. Using machine learning and natural language processing methodologies we investigated the topics prevalent in songs of the past, predicted the decade in which they were written, and conducted historical analysis through exploration to identify changing societal trends in relationships, technology, sexuality, and vulgarity.
+This project aimed to combine the record of lyrical history and technological advancements to evaluate the changes in the societal lexicon over the last 60+ years. Using machine learning and natural language processing methodologies we investigated the topics prevalent in songs of the past, predicted the decade in which they were written, and conducted historical analysis through exploration to identify changing societal trends in relationships, sexuality, and vulgarity.
 
 To do this, we acquired a [Kaggle](https://www.kaggle.com/datasets/dhruvildave/billboard-the-hot-100-songs) data set of the Billboard Top 100 Songs from its inception in 1958 to present. We then utilized the [Genius.com](https://genius.com/) API and LyricGenius Library to conduct web scraping to pull the lyrics for the specified songs which became the corpus for this project. The acquired data can be easily accessed via this[Google Drive .csv file](https://drive.google.com/file/d/1S0dJ7-5x8NIgt1LranE3UETgl_JvukGT/view).
 
-After acquiring and preparing the corpus, our team conducted time series analysis and natural language processing exploration utilizing methods such as topic modeling, word clouds, and bigrams. We also employed multiclass classification methods to create multiple machine learning models. The end goal was to create an NLP model that accurately predicted the decade a song first appeared on the Billboard Top 100 chart, based on the words and word combinations found in the lyrics of the song.
+After acquiring and preparing the corpus, our team conducted time series analysis and natural language processing exploration utilizing methods such as sentiment analysis and topic modeling. We also employed multiclass classification methods to create multiple machine learning models. The end goal was to create an NLP model that accurately predicted the decade a song first appeared on the Billboard Top 100 chart, based on the words and word combinations found in the lyrics of the song.
 
 We choose the Billboard Hot 100 song list as a focus because it is the music industry standard record chart in the United States for song popularity, published weekly by Billboard magazine. It provides a window into popular culture at a given time, by providing chart rankings of songs that were trending on sales, airplay, and now streaming for that week in the United States. It is arguably the best historical record of the impact of specific popular songs over time.
 
 
 
 #### 3. FORMULATING HYPOTHESES
-The initial hypothesis of this project was that we could use the top songs of each decade in conjunction with topic modeling to identify unique words or topics which could be used as features to accurately predict the decade a song was on the Billboard Top 100 using machine learning. The thought behind this was that popular songs have been the historians of a unique lexicon, specific to their place in time. We believe the lyrics of popular songs could be analyzed through machine learning to identify societal trends in relationships, technology, sexuality, and vulgarity.
+The initial hypothesis of this project was that we could use the top songs of each decade in conjunction with topic modeling to identify lyric features that would accurately predict the decade a song was on the Billboard Top 100 using machine learning. The thought behind this was that popular songs have been the historians of a unique lexicon, specific to their place in time. We believe the lyrics of popular songs could be analyzed through machine learning to identify societal trends in relationships, sexuality, and vulgarity.
 
 
 #### 4. INITIAL QUESTIONS:
@@ -72,20 +72,23 @@ The focus of the project is on identifying the decade a song first appeared on t
  
  
 ##### Data-Focused Questions
-- What are the most frequently occurring words?
-- What are the most frequently occurring bigrams (pairs of words) by each decade?
-- What topics are most unique to each decade?
-- Is there a correlation between sentiment and decade?
+- How does sentiment change over time?
+- Is there a correlation between historical events and sentiment?
+- What topics are most prevalent across the decades?
+- How do topics change over time?
  
   
 #### 5. KEY FINDINGS:
 The key findings for this presentation are available in slide format by clicking on the [Final Slide Presentation](https://www.canva.com/design/DAFCXoeG7z0/jNCtQkQFqyOTWS5Ckg8Xuw/view?utm_content=DAFCXoeG7z0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton).
 
-Ultimately, our hypothesis that ______ TBD _____________ 
+Exploration revealed US popular music has undergone a major cultural shift starting in the 90's, where:
 
-Exploration revealed ________ TBD ____________
+- Overall sentiment decreased
+- Lyrics became more complex
+- Topics shifted towards sex, money, & violence
+- ‘Love’ was replaced with ‘Like’
 
-Extensive feature engineering was completed prior to modeling in an attempt to create a higher performing model, however our best performing models were made with ________ TBD ______________
+Ultimately, our hypothesis that we could use the top songs of each decade to accurately predict the decade a song was on the Billboard Top 100 was true. Although, certain decades were predicted more accurately than others. Our best performing models were based heavily on TF/IDF with the top performing model being a Logistic Regression model performing 220% over baseline.
  
 #### 6. DELIVERABLES:
 - [x] README file - provides an overview of the project and steps for project reproduction
@@ -186,8 +189,8 @@ Using Jupyter Notebook
 - [x]  Address missing values, data errors, unnecessary data, renaming
 - [x]  Conduct feature engineering to create features to explore and feed into the model
    - [x] Add: Decade, Chorus Count, Verse Count, Verse/Chorus Ratio, Word Count, Unique Words per Song, Unique Words per Decade, Bigrams, and Trigrams
-   - [x] Conduct Topic Modeling using ________ to extract the main topics from the corpus 
-   - [x] Conduct Sentiment Analysis using __________ to determine positive, negative, and neutral sentiment
+   - [x] Conduct Topic Modeling using Latent Dirichlet Allocation (LDA) to extract main topics from the corpus 
+   - [x] Conduct Sentiment Analysis using Natural Language Toolkit to determine positive, negative, and neutral sentiment
 - [x]  Create a data dictionary framework to define final variables and data context
 - [x]  Split corpus into train, validate, and test samples prior to modeling **if using features in model**
 Using Python Scripting Program (Jupyter Notebook)
