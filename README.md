@@ -24,7 +24,7 @@ Table of Contents
 [1. Goal](#1-goal)<br>
 [2. Description](#2-description)<br>
 [3. Formulating Hypotheses](#3-formulating-hypotheses)<br>
-[4. Initial Questions](#4initial-questions)<br>
+[4. Initial Questions](#4-initial-questions)<br>
 [5. Key Findings](#5-key-findings)<br>
 [6. Deliverables](#6-deliverables)<br>
 * II. [Project Data Context](#ii-project-data-context)<br>
