@@ -192,16 +192,16 @@ Using Jupyter Notebook
    - [x] Conduct Topic Modeling using Latent Dirichlet Allocation (LDA) to extract main topics from the corpus 
    - [x] Conduct Sentiment Analysis using Natural Language Toolkit to determine positive, negative, and neutral sentiment
 - [x]  Create a data dictionary framework to define final variables and data context
-- [x]  Split corpus into train, validate, and test samples prior to modeling **if using features in model**
+- [x]  Split corpus into train, validate, and test samples prior to modeling 
 Using Python Scripting Program (Jupyter Notebook)
 - [x]  Create prepare functions within prepare.py
 - [x]  Store functions needed to prepare the Lyrics Corpus such as:
    - [x]  Cleaning Function: to normalize text and remove accented and special characters
    - [x]  Lemmatize Function: to acquire lexicographically correct root words
    - [x]  Stopwords Function: to remove meaningless words
-   - [x]  Clean_df Function: to remove nulls, convert to DateTime, add ______
    - [x]  Engineered Features Functions: to add desired features, topics, and sentiment
    - [x]  Split Function: to split the corpus prior to modeling if using features
+   - [x]  Get_data Function: combines all above functions    
 - [x]  Ensure all imports needed to run the prepare functions are added to the prepare.py document
 </details>
 
@@ -232,11 +232,9 @@ Using Jupyter Notebook:
 - [x]  Remove unnecessary features
 - [x]  Evaluate best performing models using validate set
 - [x]  Choose best performing validation model for use on test set
-- [x]  Test final model on out-of-sample testing corpus
 - [x]  Summarize performance
 - [x]  Interpret and document findings
-- [x]  Create prepare functions within model.py
-- [x]  Store functions needed to model the Lyrics Corpus in model.py
+- [x]  Create and store functions needed to model the Lyrics Corpus in model.py
 - [x]  Ensure all imports needed to run the model functions are added to the model.py document
 </details> 
 
