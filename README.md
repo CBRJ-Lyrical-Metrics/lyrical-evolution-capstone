@@ -283,3 +283,9 @@ Using Jupyter Notebook:
 - [x] Follow steps as outlined in the README.md. and work.ipynb
 - [x] Run Final_Report.ipynb to view the final product
 </details>
+
+Resource Note: 
+Vader Sentiment Analysis Tools: 
+Hutto, C.J. & Gilbert, E.E. (2014). VADER: A Parsimonious Rule-based Model for
+Sentiment Analysis of Social Media Text. Eighth International Conference on
+Weblogs and Social Media (ICWSM-14). Ann Arbor, MI, June 2014.
