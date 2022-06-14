@@ -165,7 +165,7 @@ Plan➜ Acquire ➜ Prepare ➜ Explore ➜ Model & Evaluate ➜ Deliver
      - [x] Run through Lyrics Genius to obtain lyrics 
      - [x] Store as.csv     
 - [x]  Ensure all imports needed to run the acquire functions are inside the acquire.py document
-- [x]  Using Command Line / Terminal, run ‘python acquire.py’ to create the `data.json` file that contains the corpus
+- [x]  Using Command Line / Terminal, run ‘python acquire.py’ to create the `songs_0526.csv` file that contains the corpus
 - [x]  Using Jupyter Notebook or other Python Scripting Program
      - [x]  Run all required imports
      - [x]  Import functions for acquiring the corpus from acquire.py module
@@ -182,7 +182,7 @@ Using Jupyter Notebook
    - [x] Make all text lowercase
    - [x] Normalize, encode, and decode to remove accented text and special characters
    - [x] Remove stopwords  
-   - [x] Stem or Lemmatize words to acquire base words
+   - [x] Lemmatize words to acquire base words
    - [x] Convert date to DateTime format
    - [x] Expand contractions to include the full word/meaning
    - [x] Remove song part identifiers ('verse', 'chorus', etc.)
@@ -197,7 +197,6 @@ Using Python Scripting Program (Jupyter Notebook)
 - [x]  Create prepare functions within prepare.py
 - [x]  Store functions needed to prepare the Lyrics Corpus such as:
    - [x]  Cleaning Function: to normalize text and remove accented and special characters
-   - [x]  Stem Function: to acquire root words
    - [x]  Lemmatize Function: to acquire lexicographically correct root words
    - [x]  Stopwords Function: to remove meaningless words
    - [x]  Clean_df Function: to remove nulls, convert to DateTime, add ______
