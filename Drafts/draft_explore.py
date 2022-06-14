@@ -9,19 +9,6 @@ import matplotlib.ticker as mtick
 import matplotlib as mpl
 from matplotlib.colors import ListedColormap
 
-# Modeling help...
-from sklearn.decomposition import NMF
-from sklearn.decomposition import LatentDirichletAllocation
-from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler, MinMaxScaler
-
-# nltk: natural language toolkit -> tokenization, stopwords
-import nltk
-from nltk.tokenize.toktok import ToktokTokenizer
-from nltk.corpus import stopwords
-from nltk.stem.porter import PorterStemmer as stemmer
-
 # Quieeet!!! Y'all can't stop me now...
 import warnings
 warnings.filterwarnings('ignore')
@@ -31,7 +18,7 @@ pd.set_option('display.max_columns', 50)
 pd.set_option('display.max_rows', 50)
 
 
-
+plt.rcParams['figure.figsize'] = (15, 5)
 
 
 def sentiment_lineplot(df):
