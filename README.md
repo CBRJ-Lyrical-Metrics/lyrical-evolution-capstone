@@ -88,7 +88,7 @@ Exploration revealed US popular music has undergone a major cultural shift start
 - Topics shifted towards sex, money, & violence
 - ‘Love’ was replaced with ‘Like’
 
-Ultimately, our hypothesis that we could use the top songs of each decade to accurately predict the decade a song was on the Billboard Top 100 was true. Although, certain decades were predicted more accurately than others. Our best performing models were based heavily on TF/IDF with the top performing model being a Logistic Regression model performing 220% over baseline.
+Ultimately, our hypothesis that we could use the top songs of each decade to accurately predict the decade a song was on the Billboard Top 100 was true. Although, certain decades were predicted more accurately than others. Our best performing models were based heavily on TF/IDF with the top performing model being a Logistic Regression model with an F-1 score that was 220% over baseline.
  
 #### 6. DELIVERABLES:
 - [x] README file - provides an overview of the project and steps for project reproduction
@@ -118,8 +118,8 @@ character_count*          |The number of characters within the cleaned document 
 word_count*               |The number of words within the cleaned document        |integer
 unique_words*             |A list of the unique words in the cleaned document     |object
 unique_word_count*        |The number of unique words in the cleaned document     |integer
-sentiment*                |Score between -1.0 (negative) and 1.0 (positive) indicating overal emotional leaning of lyrics      |float
-sentiment_category*       |Categorical category based upon sentiment score: very negative, somewhat negative, nuetral, somewhat positive, very positive   |category
+sentiment*                |Score between -1.0 (negative) and 1.0 (positive) indicating overall emotional leaning of lyrics      |float
+sentiment_category*       |Categorical category based upon sentiment score: very negative, somewhat negative, nuetral, somewhat positive, very positive   |object
 place_words*              |A list of song part identifiers in the lyrics          |object
 chorus_count*             |The number of choruses in the song                     |integer
 verse_count*              |The number of unique words in the cleaned document     |integer
@@ -131,7 +131,7 @@ hook_count*               |The number of hooks in the song                      
 bigrams*                  |A list of bigrams in the cleaned document              |object
 trigrams*                 |A list of  trigrams in the cleaned document            |object
 
-* feature engineered
+\* feature engineered
  
 ## III. PROJECT PLAN - USING THE DATA SCIENCE PIPELINE:
 The following outlines the process taken through the Data Science Pipeline to complete this project. 
@@ -277,7 +277,7 @@ Using Jupyter Notebook:
         - [x] Store that .gitignore and env file locally in the repository
         - [x] Run the acquire.py modules
 - [x] Clone our repo (including all .py modules)
-- [x] Import supporting resources and python libraries:  pandas, matplotlib, seaborn, plotly, numpy, sklearn, scipy, nltk, contractions, json, re, and unicodedata, unidecode, and lyricsgenius 
+- [x] Import supporting resources and python libraries:  pandas, matplotlib, seaborn, plotly, numpy, sklearn, scipy, nltk, contractions, json, re, unicodedata, unidecode, and lyricsgenius 
 - [x] Follow steps as outlined in the README.md. and work.ipynb
 - [x] Run Final_Report.ipynb to view the final product
 </details>
