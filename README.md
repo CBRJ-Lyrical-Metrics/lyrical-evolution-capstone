@@ -57,14 +57,14 @@ This project aimed to combine the record of lyrical history and technological ad
 
 To do this, we acquired a [Kaggle](https://www.kaggle.com/datasets/dhruvildave/billboard-the-hot-100-songs) data set of the Billboard Top 100 Songs from its inception in 1958 to present. We then utilized the [Genius.com](https://genius.com/) API and LyricGenius Library to conduct web scraping to pull the lyrics for the specified songs which became the corpus for this project. The acquired data can be easily accessed via this [Google Drive .csv file](https://drive.google.com/file/d/1S0dJ7-5x8NIgt1LranE3UETgl_JvukGT/view).
 
-After acquiring and preparing the corpus, our team conducted time series analysis and natural language processing exploration utilizing methods such as sentiment analysis and topic modeling. We also employed multiclass classification methods to create multiple machine learning models. The end goal was to create an NLP model that accurately predicted the decade a song first appeared on the Billboard Top 100 chart, based on the words and word combinations found in the lyrics of the song.
+After acquiring and preparing the corpus, our team conducted time series analysis and natural language processing exploration utilizing methods such as sentiment analysis and topic modeling. We also employed multiclass classification methods to create multiple machine learning models. The end goal was to create an NLP model that accurately predicted the decade a song first appeared on the Billboard Top 100 chart, based on the words found in the lyrics of the song.
 
 We choose the Billboard Hot 100 song list as a focus because it is the music industry standard record chart in the United States for song popularity, published weekly by Billboard magazine. It provides a window into popular culture at a given time, by providing chart rankings of songs that were trending on sales, airplay, and now streaming for that week in the United States. It is arguably the best historical record of the impact of specific popular songs over time.
 
 
 
 #### 3. FORMULATING HYPOTHESES
-The initial hypothesis of this project was that we could use the top songs of each decade in conjunction with topic modeling to identify lyric features that would accurately predict the decade a song was on the Billboard Top 100 using machine learning. The thought behind this was that popular songs have been the historians of a unique lexicon, specific to their place in time. We believe the lyrics of popular songs could be analyzed through machine learning to identify societal trends in relationships, sexuality, and vulgarity.
+The initial hypothesis of this project was that we could use the top songs of each decade in conjunction with topic modeling and sentiment analysis to identify lyric features that would accurately predict the decade a song was on the Billboard Top 100 using machine learning. The thought behind this was that popular songs have been the historians of a unique lexicon, specific to their place in time. We believe the lyrics of popular songs could be analyzed through machine learning to identify societal trends in relationships, sexuality, and vulgarity.
 
 
 #### 4. INITIAL QUESTIONS:
@@ -72,10 +72,12 @@ The focus of the project is on identifying the decade a song first appeared on t
  
  
 ##### Data-Focused Questions
-- How does sentiment change over time?
-- Is there a correlation between historical events and sentiment?
+- How does sentiment within lyrics change over time?
+- Is there a correclation between sentiment and the time a song was popular?
+- Is there a correlation between events in history and sentiment of lyrics?
 - What topics are most prevalent across the decades?
-- How do topics change over time?
+- How do topics within lyrics change over time?
+- Is there a correlation between topics and the time a song was popular?
  
   
 #### 5. KEY FINDINGS:
@@ -106,7 +108,7 @@ Ultimately, our hypothesis that we could use the top songs of each decade to acc
 The final DataFrame used to explore the corpus for this project contains the following variables (columns).  The variables, along with their data types, are defined below:
  
  
-|  Variables             |    Definition                              |    DataType             |
+|  Variables             |    Definition                              |    Data Type             |
 | :--------------------   | :---------------------------------------- | :-------------------- |
 title                     |Title of song listed on Billboard Top 100 Chart        |object
 artist                    |Vocalist who performed song                            |object
