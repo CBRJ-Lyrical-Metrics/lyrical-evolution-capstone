@@ -38,13 +38,15 @@ def topic_popularity(df):
     '#1f1e1b' #(black)
     )
     # get value counts for each topic and make a bar plot
+    plt.figure(figsize=(12,8))
     df.topic_name.value_counts().plot(kind = 'bar', color = colors)
     # title it
     plt.title('Billboard Hot 100 Topic Popularity 1958-Present', fontsize = 20)
     # modify as needed
     plt.xlabel('Topic Descriptors', fontsize = 18)
-    plt.xticks(rotation = 35, ha = 'right', fontsize = 14)
+    plt.xticks(rotation=35, ha='right', fontsize=14)
     plt.ylabel('Song Topic Count', fontsize = 18)
+    plt.ylabel('Song Topic Count', fontsize=14)
     plt.show()
     return
 
@@ -78,7 +80,10 @@ def relationship_line(df):
     # groupby the relationship topics based on yearly frequency then take the 5yr rolling average
     # based on every topic take the percentage it makes up for that year and then make a line plot
     ax = df2.groupby('relationship_topics').resample('Y').size().unstack(0).rolling(5).mean()\
-                                      .apply(lambda row: row / row.sum(), axis=1).plot(kind = 'line', linewidth = 3, cmap = my_cmap)
+                                      .apply(lambda row: row / row.sum(), axis=1).plot(kind='line', 
+                                                                                       linewidth=3, 
+                                                                                       cmap=my_cmap,
+                                                                                       figsize=(12,8))
     # move the legend outside
     plt.legend(bbox_to_anchor = (1.05, 1), loc = 2, borderaxespad=0., prop={'size': 15})
     # set the xlim to 1960 to limit blank space on the left taken up by taking rolling avg
@@ -113,6 +118,7 @@ def touch_swarm(df):
     df6['affection_v_sex'] = np.where(df6['topic_name'].isin(['affection','sex']), df6['topic_name'], 
                                                     None)
     # create a swarmplot with the two topics based on the date of introduction into the Hot 100
+    plt.figure(figsize=(12,8))
     ax = sns.swarmplot(data = df6, x = 'affection_v_sex', y = 'date', palette = palette)
     # modify as needed
     plt.title('Explicit \'Sex\' Lyrics Have Replaced \'Affection\'', fontsize = 20)
@@ -142,6 +148,7 @@ def vice_swarm(df):
     df4['vices'] = np.where(df4['topic_name'].isin(['sex', 'money', 'violence']), df4['topic_name'], 
                                                     None)
     # create a swarmplot with the three topics based on the date of introduction into the Hot 100
+    plt.figure(figsize=(12,8))                                                                                   
     ax = sns.swarmplot(data = df4, x = 'vices', y = 'date', palette = palette)
     # modify as needed
     plt.title('Vice Topics Have Increased Significantly Beginning In The 90\'s', fontsize = 20)
@@ -160,6 +167,9 @@ def sentiment_lineplot(df):
     '''
     # set visual style settings
     mpl.style.use('seaborn')
+    
+    plt.figure(figsize=(12,8))
+               
     # define average sentiment by decade and create the plot
     df.groupby('decade').mean().sentiment.plot(marker='.',
                                                markersize=18,
@@ -184,7 +194,10 @@ def sentiment_histplot(df):
                  color='#ec1c34', #(red)
                 )
     plt.title('Overall Sentiment Distribution', fontsize=18)
-    plt.xticks(fontsize=13)
+    plt.xlabel('Sentiment Score', fontsize=16)
+    plt.xticks(fontsize=14)
+    plt.ylabel('Number of Songs', fontsize=16)
+    plt.yticks(fontsize=14)
     plt.show()
     
 def sentiment_stacked_bar(df):
@@ -263,6 +276,7 @@ def historical_lineplot(df):
     mpl.style.use('seaborn')
     # set visual size
     plt.figure(figsize=(12, 8))
+               
     # create the plot
     df3.plot(label="Annual Average", 
              color="#2dace4", # (blue) 
@@ -279,8 +293,8 @@ def historical_lineplot(df):
 
     # define visual style of annotation arrow
     arrowprops = {
-                  'arrowstyle': '->',
-                  'linewidth': .8,
+                  #'arrowstyle': '->',
+                  'linewidth': .4,
                   'facecolor': 'black',
                   #'relpos': (0,1)
                  }
@@ -421,6 +435,8 @@ def love_vs_like_lineplot(df):
 
     # create a new df of average rates resampled  by year, rolling five year average
     df2 = df[['love_rate', 'like_rate']].resample('Y').mean().dropna().rolling(5).mean()
+               
+    plt.figure(figsize=(12,8))
 
     # plot love_rate
     sns.lineplot(data=df2, 
@@ -464,6 +480,8 @@ def unique_words_lineplot(df):
 
     # create a new df of the desired feature, resampled by year
     df2 = df[['unique_words_count']].resample('Y').mean().dropna().rolling(5).mean()
+
+    plt.figure(figsize=(12,8))
 
     # create the plot
     sns.lineplot(data=df2,
