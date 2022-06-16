@@ -32,6 +32,7 @@ def baseline_accuracy(df, mode):
 
 # get the data
 df = prepare.get_data()
+
 # remove incomplete decades (1950, 2020)
 df = df[(df.decade != 1950) & (df.decade != 2020)]
 
