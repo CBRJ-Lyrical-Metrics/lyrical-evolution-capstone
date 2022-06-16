@@ -115,7 +115,7 @@ def touch_swarm(df):
     # create a swarmplot with the two topics based on the date of introduction into the Hot 100
     ax = sns.swarmplot(data = df6, x = 'affection_v_sex', y = 'date', palette = palette)
     # modify as needed
-    plt.title('Explicit\'Sex\' Lyrics Have Replaced \'Affection\'', fontsize = 20)
+    plt.title('Explicit \'Sex\' Lyrics Have Replaced \'Affection\'', fontsize = 20)
     plt.ylabel('Date', fontsize = 18)
     plt.yticks(fontsize = 14)
     plt.xlabel('Topic', fontsize = 18)
@@ -173,7 +173,7 @@ def sentiment_lineplot(df):
     plt.yticks(fontsize=14)
     plt.show()
     return
-​
+
 def sentiment_histplot(df):
     '''
     plots a histgram of sentiment score for the entire corpus
