@@ -196,6 +196,19 @@ def sentiment_stacked_bar(df):
     in between: mid-range
     '''
 
+    def get_sentiment_category_2(sentiment_score):
+        if sentiment_score < -.75:
+            return 'very negative'
+        elif sentiment_score < .75:
+            return 'mid-range'
+        else:
+            return 'very positive'
+    
+    df['sentiment_category_2'] = df.sentiment.apply(get_sentiment_category_2)
+    df['sentiment_category_2'] = pd.Categorical(df.sentiment_category_2, 
+                                                categories=['very negative', 'mid-range', 'very positive'],
+                                                ordered=True)
+
     # set visual style
     mpl.style.use('seaborn')
 
@@ -209,7 +222,7 @@ def sentiment_stacked_bar(df):
 
     # create the plot
     (
-        df2.groupby('decade')
+        df.groupby('decade')
          .sentiment_category_2
          .value_counts(normalize = True)
          .unstack()
