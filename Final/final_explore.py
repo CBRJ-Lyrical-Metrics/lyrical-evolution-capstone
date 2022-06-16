@@ -156,9 +156,11 @@ def vice_swarm(df):
 
 def sentiment_lineplot(df):
     '''
-    
+    plots average sentiment by decade as a lineplot
     '''
+    # set visual style settings
     mpl.style.use('seaborn')
+    # define average sentiment by decade and create the plot
     df.groupby('decade').mean().sentiment.plot(marker='.',
                                                markersize=18,
                                                color='#69B138', #(green)
@@ -174,7 +176,7 @@ def sentiment_lineplot(df):
 
 def sentiment_histplot(df):
     '''
-    
+    plots a histgram of sentiment score for the entire corpus
     '''
     plt.figure(figsize=(12,2))
     sns.histplot(df.sentiment, 
@@ -187,10 +189,17 @@ def sentiment_histplot(df):
     
 def sentiment_stacked_bar(df):
     '''
-    
+    displays a stacked bar chart of "sentiment_category_2" by decade.
+    represents sentiment score divided into three categories:
+    >= .75 very positive
+    <= -.75 very negative
+    in between: mid-range
     '''
-    plt.style.use('seaborn')
 
+    # set visual style
+    mpl.style.use('seaborn')
+
+    # create custom colormap of billboard brand colors
     from matplotlib.colors import ListedColormap
     cmap = ListedColormap([
                             '#ec1c34', #(red)
@@ -198,6 +207,7 @@ def sentiment_stacked_bar(df):
                             '#69b138' #(green)
                            ])
 
+    # create the plot
     (
         df2.groupby('decade')
          .sentiment_category_2
@@ -210,6 +220,7 @@ def sentiment_stacked_bar(df):
                figsize=(7, 8),
                )
     )
+    # set y-axis as percent format
     plt.gca().yaxis.set_major_formatter('{:.0%}'.format)
     plt.title('Distribution of Sentiment\nAcross Decades', fontsize=16)
     plt.ylabel('Portion of All Songs', fontsize=14)
@@ -225,15 +236,24 @@ def sentiment_stacked_bar(df):
     return
 
 def historical_lineplot(df):
+    '''
+    Plots annual average sentiment as a line, with annotations
+    representing major historical events.
+    '''
+    # set a datetime index
     df = df.set_index('date')    
+    # take average annual sentiment
     df3 = df['sentiment'].resample('Y').mean().dropna()
     df3.index.freq = None
-
+    
+    # set visual style
     mpl.style.use('seaborn')
-
-    df3.plot(label='Annual Average', 
-             color='#2dace4', #(blue)
-             linewidth='4'
+    # set visual size
+    plt.figure(figsize=(12, 8))
+    # create the plot
+    df3.plot(label="Annual Average", 
+             color="#2dace4", # (blue) 
+             linewidth="4"
             )
 
     plt.title('Lyric Sentiment vs. Historical Events', fontsize=20)
@@ -244,6 +264,7 @@ def historical_lineplot(df):
     plt.xlim(pd.to_datetime('1960'), pd.to_datetime('2020'))
     plt.ylim(.11, .79)
 
+    # define visual style of annotation arrow
     arrowprops = {
                   'arrowstyle': '->',
                   'linewidth': .8,
@@ -251,7 +272,7 @@ def historical_lineplot(df):
                   #'relpos': (0,1)
                  }
 
-
+    ### HISTORICAL EVENT ANNOTATIONS ###
 
     # 1964: Increased Presence in Vietnam
     plt.annotate('1964\nIncreased\nU.S. Presence\nin Vietnam', 
@@ -370,24 +391,32 @@ def historical_lineplot(df):
     plt.show()
     return
 
-
 ######################################## Love/Like Visuals ########################################
-
 
 def love_vs_like_lineplot(df):
     '''
-    
+    plots the prevalence of words "like" and "love" in the corpus over time, 
+    as the average rate of occurence per 100 words in each song, by year.
     '''
+
+    # set a datetime index
     df = df.set_index('date')
+
+    # create features in the df: like rate and love rate
     df['love_rate'] = df.lyrics.str.count('love') / (df.word_count / 100)
     df['like_rate'] = df.lyrics.str.count('like') / (df.word_count / 100)
+
+    # create a new df of average rates resampled  by year, rolling five year average
     df2 = df[['love_rate', 'like_rate']].resample('Y').mean().dropna().rolling(5).mean()
 
+    # plot love_rate
     sns.lineplot(data=df2, 
                  x='date', 
                  y='love_rate',
                  color='#2dace4', #(blue)
                  linewidth=4)
+    
+    # plot like_rate
     sns.lineplot(data=df2, 
                  x='date', 
                  y='like_rate',
@@ -400,6 +429,7 @@ def love_vs_like_lineplot(df):
     plt.yticks(fontsize=14)
     plt.legend(['Love', 'Like'], fontsize=14, loc='center right')
 
+    # annotation to let viewer know it is a rolling average
     plt.annotate('(Rolling 5-Year Average)', 
                  xy=(pd.to_datetime('2009'), .7), 
                  xytext=(pd.to_datetime('2009'), .7),
@@ -409,17 +439,20 @@ def love_vs_like_lineplot(df):
     plt.show()
     return
 
-
 ######################################## Unique Words Visuals ########################################
-
 
 def unique_words_lineplot(df):
     '''
-    
+    plots the average unique words per song over time, by year
     '''
-    df = df.set_index('date')
-    df2 = df[['unique_words_count', 'word_count']].resample('Y').mean().dropna().rolling(5).mean()
 
+    # set a datetime index
+    df = df.set_index('date')
+
+    # create a new df of the desired feature, resampled by year
+    df2 = df[['unique_words_count']].resample('Y').mean().dropna().rolling(5).mean()
+
+    # create the plot
     sns.lineplot(data=df2,
                  x='date',
                  y='unique_words_count',
