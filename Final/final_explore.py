@@ -173,7 +173,7 @@ def sentiment_lineplot(df):
     plt.yticks(fontsize=14)
     plt.show()
     return
-​
+
 def sentiment_histplot(df):
     '''
     plots a histgram of sentiment score for the entire corpus
